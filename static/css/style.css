@@ -192,3 +192,39 @@ footer {
     background: transparent;
     border: none;
 }
+
+/* index page */
+
+
+
+ .hero-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+} 
+
+/* img {
+    height: 100%;
+    width: 100%;
+    
+} */
+
+/* #my-image-div{ 
+	background-image: url("/static/images/earth.jpg"); 
+	background-size: cover; 
+	height: 500px; 
+	width: 600px; 
+} 
+#my-image-text{ 
+	position: relative; 
+	top: 50px; 
+	width: 500px; 
+}  */
