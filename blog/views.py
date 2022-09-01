@@ -8,3 +8,15 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
+
+def about(request):
+    """ A view to return the index page """
+    return render(request, 'about.html')
+
+def contact(request):
+    """ A view to return the index page """
+    return render(request, 'contact.html')
+
+def blog(request):
+    """ A view to return the index page """
+    return render(request, 'blog.html')
