@@ -244,3 +244,13 @@ p {
     font-size: 40px;
 }
 
+.color {
+    color: #EF5C65;
+}
+
+
+.roww {
+    height: 50vh;
+    width: 100%;
+
+}

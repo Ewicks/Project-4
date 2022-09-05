@@ -2,5 +2,54 @@
 {% load static %}
 
 {% block content %}
+<section>
+    <div class="container-fluid bg-dark text-white">
+        <div class="row g-0 align-items-center roww ">
+          <div class="col-sm text-center">
+            <h1 class="color">About Us</h1>
+            <h3 class="mx-5">Welcome to Universal Blogs, we offer blogs that all vary in different topics. 
+                <br>Users can also create their own blogs and display them in the blog section  </h3>
+          </div>
+          <div class="col-sm">
+            <img src="{% static 'images/blog.png' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+</section>
+
+<section>
+    <div class="container-fluid text-center">
+    <h1 class="text-center">How to create a blog</h1>
+
+        <div class="row">
+            <div class="col-sm">
+                <h2 class="color">step 1</h2>
+                First you need to create a account, enter the required details
+            </div>
+            <div class="col-sm">
+                <img src="{% static 'images/create-account.jpeg' %}" height="70%" width="50%" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <img src="{% static 'images/sign-in.jpeg' %}" height="70%" width="50%" alt="">
+            </div>
+            <div class="col-sm">
+                <h2 class="color">step 2</h2>
+                Next sign in with your account details
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <h2 class="color">step 1</h2>
+                Create new post and fill in your blog post in 
+            </div>
+            <div class="col-sm">
+                <img src="{% static 'images/create-post.jpeg' %}" height="70%" width="50%" alt="">
+
+            </div>
+        </div>
+    </div>
+</section>
 
 {%endblock%}
