@@ -227,20 +227,27 @@ footer {
     font-weight: bold;
 }
 
-.login-btn {
-    padding: 20px 40px;
+.btn {
     background-color: #EF5C65;
-    border-radius: 50px;
-    color: #EF5C65;
-    border: 1px solid #EF5C65;
-    color: black;
+    font-size: 30px;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-weight: bold;
+}
+
+.white {
+    color: #fff;
+}
+
+.border-dark {
+    border: 1px solid black;
 }
 
 h1 {
     font-size: 100px;
 }
 
-p {
+.sub-title {
     font-size: 40px;
 }
 
@@ -252,5 +259,13 @@ p {
 .roww {
     height: 50vh;
     width: 100%;
+}
 
+.sign-up-color {
+    background-color: #E6F0FF;
+}
+
+.bold-text {
+    font-weight: bold;
+    font-size: 60px;
 }
