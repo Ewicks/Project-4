@@ -3,13 +3,23 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <img src="{% static 'images/earth.jpg' %}" alt="" width="100%" height="100%">
-    <div class="overlay-text">
-        <h1>hii</h1>
-    </div>
-</div>
+<section class="hero">
 
+    <div class="hero-overlay"></div>
+    <img class="hero-img" src="{% static 'images/earth.jpg' %}" alt="">
+
+    <div class="hero__content h-100 container-xxl position-relative">
+        <div class="d-flex h-100 align-items-center">
+            <div class="text-white">
+                <h1>Universal <span class="blogs">Blogs</span></h1>
+                <p>ijsdofij oijsdoifj sdo</p>
+                <button class="login-btn"><a href="#">Login</a></button>
+                
+            </div>
+
+        </div>
+    </div>
+</section>
 
 
 
