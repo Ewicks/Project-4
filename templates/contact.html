@@ -4,39 +4,48 @@
 {% block content %}
 
 <div class="conatainer-fluid hero-section">
-    <div class="row">
-        <div class="col-sm-6 mx-5">
-            <form>
-                <h1 class="text-center color my-5">Contact us</h1>
-                <div class="row">
-                  <div class="col">
-                    <label for="">First Name</label>
-                    <input type="text" class="form-control mb-5" placeholder="First name">
-                  </div>
-                  <div class="col">
-                    <label for="">Second Name</label>
-                    <input type="text" class="form-control" placeholder="Last name">
-                  </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="">Email</label>
-                        <input type="text" class="form-control mb-4" placeholder="Email">
-                      </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Message Area</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Start typing here..." rows="3"></textarea>
-                      </div>
-                </div>
-              </form>
-        </div>
-        <div class="col-sm">
-            <img src="{% static 'images/earth.jpg' %}" height="100%" width="100%" alt="">
-        </div>
+  <div class="row">
+    <div class="col mx-5">
+      <!-- Wrapper container -->
+      <div class="container py-4">
+
+        <!-- Bootstrap 5 starter form -->
+        <form id="contactForm" >
+         <h2 class="color text-center">Please fill in the details to contact us</h2>
+          
+          <!-- Name input -->
+          <div class="mb-3">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-control" id="name" type="text" placeholder="Name" />
+          </div>
+
+          <!-- Email address input -->
+          <div class="mb-3">
+            <label class="form-label" for="emailAddress">Email Address</label>
+            <input class="form-control" id="emailAddress" type="email" placeholder="Email Address" />
+          </div>
+
+          <!-- Message input -->
+          <div class="mb-3">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-control" id="message" type="text" placeholder="Message"
+              style="height: 10rem;"></textarea>
+          </div>
+
+          <!-- Form submit button -->
+          <div class="d-grid">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+
+        </form>
+
+      </div>
     </div>
-    
+    <!-- <div class="col-sm">
+      <img src="{% static 'images/earth.jpg' %}" height="100%" width="100%" alt="">
+    </div> -->
+  </div>
+
 </div>
 
 {%endblock%}
