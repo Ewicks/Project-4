@@ -1,8 +1,14 @@
 {% extends "base.html" %}
-<!-- {% load static %} -->
+
 
 {% block content %}
 
+<h1>post</h1>
+<ul>
+{% for post in object_list %}
+    <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> - {{ post.author }} <br>
+    {{ post.content|safe }}</li>
+{% endfor %}
+</ul>
 
-
-{%endblock%}
+{% endblock %}
