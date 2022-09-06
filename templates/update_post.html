@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Create new blog post{% endblock %}
+{% block title %}Edit Blog Post{% endblock %}
 
 
 {% block content %}
@@ -12,7 +12,7 @@
     <form method="POST">
         {% csrf_token  %}
         {{ form.as_p }}
-        <button class="btn">Post</button>
+        <button class="btn"><a href="{% url 'blog' %}">Update</a></button>
     </form>    
 </div>
 

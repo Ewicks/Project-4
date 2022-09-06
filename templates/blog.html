@@ -8,7 +8,10 @@
 {% for post in object_list %}
     <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> - {{ post.author }} <br>
     {{ post.content|safe }}</li>
+    <a href="{% url 'update_post' post.pk %}">Edit</a>
 {% endfor %}
 </ul>
+
+<button class="btn"><a href="{% url 'add_post' %}">Add Post</a></button>
 
 {% endblock %}

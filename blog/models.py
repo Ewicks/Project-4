@@ -27,7 +27,8 @@ class Post(models.Model):
         User, related_name='blogpost_like', blank=True)
 
     def get_absolute_url(self):
-        return reverse('article-detail', args=(str(self.id)))
+        # return reverse('article-detail', args=(str(self.id)))
+        return reverse('home')
 
     class Meta:
         ordering = ["-created_on"]
