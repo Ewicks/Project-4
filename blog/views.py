@@ -10,6 +10,7 @@ class PostList(ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blog.html"
     paginate_by = 6
+    ordering = ["updated_on"]
     # ordering = ["-id"]
 
 
@@ -44,10 +45,6 @@ def about(request):
 def contact(request):
     """ A view to return the contact page """
     return render(request, 'contact.html')
-
-def blog(request):
-    """ A view to return the blog page """
-    return render(request, 'blog.html')
 
 def index(request):
     """ A view to return the blog page """
