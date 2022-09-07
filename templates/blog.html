@@ -9,6 +9,7 @@
     <li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> - {{ post.author }} <br>
     {{ post.content|safe }}</li>
     <a href="{% url 'update_post' post.pk %}">Edit</a>
+    <a href="{% url 'delete_post' post.pk %}">Delete</a>
 {% endfor %}
 </ul>
 

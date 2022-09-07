@@ -8,6 +8,8 @@
         <div class="col-sm d-flex flex-column">
             <small >{{ post.topic }}</small>
             <h2 >{{ post.title }}</h2>
+            <a href="{% url 'update_post' post.pk %}">Edit</a>
+            <a href="{% url 'delete_post' post.pk %}">Delete</a>
             <small >{{ post.updated_on }}</small>
             <img  src="{{ post.featured_image }}" height="200px" width="200px" alt="">
             <!-- <img src="" alt="back up image"> -->

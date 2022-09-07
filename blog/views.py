@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
+from django.urls import reverse_lazy
 # from .forms import PostForm
 
 
@@ -9,6 +10,7 @@ class PostList(ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blog.html"
     paginate_by = 6
+    # ordering = ["-id"]
 
 
 class ArticleDetailView(DetailView):
@@ -29,6 +31,11 @@ class UpdatePostView(UpdateView):
     template_name = "update_post.html"
     fields = ['title', 'content']
 
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = "delete_post.html"
+    success_url = reverse_lazy('blog')
 
 def about(request):
     """ A view to return the about page """
