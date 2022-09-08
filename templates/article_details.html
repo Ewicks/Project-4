@@ -3,41 +3,66 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row ">
-        <div class="col-sm d-flex flex-column">
-            <small>{{ post.topic }}</small>
-            <h2>{{ post.title }}</h2>
-            <a href="{% url 'update_post' post.pk %}">Edit</a>
-            <a href="{% url 'delete_post' post.pk %}">Delete</a>
-            <small>{{ post.created_on }}</small>
-            <img src="{{ post.featured_image }}" height="200px" width="200px" alt="">
-            <!-- <img src="" alt="back up image"> -->
-            <p>{{ post.content|safe }}</p>
-            <strong>
-                {% if user.is_authenticated %}
-                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                    {% csrf_token %}
-                    {% if liked %}
-                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                            class="fa-regular fa-heart heart-color"></i></button>
-                    {% else %}
-                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                            class="fa-regular fa-heart heart-color"></i></button>
-                    {% endif %}
-                </form>
-                {% else %}
-                <span class="text-secondary"><i class="fa-regular fa-heart heart-color"></i></span>
-                {% endif %}
-                <!-- The number of likes goes before the closing strong tag -->
-                <span class="text-secondary">{{ post.number_of_likes }} </span>
-            </strong>
-            <a class="btn" href="{% url 'blog' %}">back</a>
-
-        </div>
+<section class="container-fluid test-color">
+    <div class="d-flex bd-highlight p-3">
+        <p class="p-2 bd-highlight">All Posts</p>
+        <p class="p-2 bd-highlight">Technology</p>
+        <p class="p-2 bd-highlight">Sports</p>
+        <p class="p-2 bd-highlight">Business</p>
+        <button class="btn border-dark p-2 bd-highlight"><a class="text-black" href="{% url 'add_post' %}">Add Post</a></button>
+        <p class="ms-auto p-2 bd-highlight border-dark ">Log in/Sign up</p>
     </div>
+</section>
 
-</div>
+
+<section>
+    <div class="row d-flex justify-content-center">
+        <!--Grid column-->
+        <div class="h-50 d-inline-block my-5" style="width: 800px; background-color: white">
+            <div class="col-md p-5">
+                <!-- <small>{{ post.topic }}</small> -->
+                <div class="d-flex bd-highlight">
+                    <p class="bd-highlight">By: {{ post.author }} | <small>{{ post.created_on }}</small></p>
+                    <p class="ms-auto bd-highlight"><a href="#"><i class="fa-regular fa-share-from-square text-black"></i></a></p>
+                </div>
+                <h2 class="mb-4">{{ post.title }}</h2>
+              
+                <img class="mb-4" src="{{ post.featured_image }}" height="300px" width="100%" alt="">
+                <!-- <img src="" alt="back up image"> -->
+                <p>{{ post.content|safe }}</p>
+                
+                <hr class="mt-5 ">
+                <div class="d-flex bd-highlight align-items-center">
+                    <a class="btn bd-highlight" href="{% url 'blog' %}">back</a>
+                    <a class="bd-highlight" href="{% url 'update_post' post.pk %}">Edit</a>
+                    <a class="bd-highlight" href="{% url 'delete_post' post.pk %}">Delete</a>
+                    <strong class="ms-auto bd-highlight">
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                    class="fa-regular fa-heart heart-color"></i></button>
+                            {% else %}
+                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                    class="fa-regular fa-heart heart-color"></i></button>
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <span class="text-secondary"><i class="fa-regular fa-heart heart-color"></i></span>
+                        {% endif %}
+                        <!-- The number of likes goes before the closing strong tag -->
+                        <span class="text-secondary">{{ post.number_of_likes }} </span>
+                    </strong>
+                </div>
+                
+            </div>
+        </div>
+        <!--Grid column-->
+    </div>
+</section>
+
+
 
 
 {% endblock %}
