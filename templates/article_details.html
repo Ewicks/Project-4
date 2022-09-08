@@ -4,21 +4,21 @@
 {% block content %}
 
 <section class="container-fluid test-color">
-    <div class="d-flex bd-highlight p-3">
-        <p class="p-2 bd-highlight">All Posts</p>
-        <p class="p-2 bd-highlight">Technology</p>
-        <p class="p-2 bd-highlight">Sports</p>
-        <p class="p-2 bd-highlight">Business</p>
+    <div class="d-flex bd-highlight p-3 align-items-center">
+        <p class="p-2 mb-0 bd-highlight">All Posts</p>
+        <p class="p-2 mb-0 bd-highlight">Technology</p>
+        <p class="p-2 mb-0  bd-highlight">Sports</p>
+        <p class="p-2 mb-0  bd-highlight">Business</p>
         <button class="btn border-dark p-2 bd-highlight"><a class="text-black" href="{% url 'add_post' %}">Add Post</a></button>
-        <p class="ms-auto p-2 bd-highlight border-dark ">Log in/Sign up</p>
+        <button class="ms-auto m-0 p-2 bd-highlight border-dark btn"><a class="text-black" href=""> Log in/Sign up</a></button>
+        
     </div>
 </section>
 
 
 <section>
     <div class="row d-flex justify-content-center">
-        <!--Grid column-->
-        <div class="h-50 d-inline-block my-5" style="width: 800px; background-color: white">
+        <div class="d-inline-block mb-5" style="width: 800px; background-color: white">
             <div class="col-md p-5">
                 <!-- <small>{{ post.topic }}</small> -->
                 <div class="d-flex bd-highlight">
@@ -33,9 +33,14 @@
                 
                 <hr class="mt-5 ">
                 <div class="d-flex bd-highlight align-items-center">
-                    <a class="btn bd-highlight" href="{% url 'blog' %}">back</a>
-                    <a class="bd-highlight" href="{% url 'update_post' post.pk %}">Edit</a>
-                    <a class="bd-highlight" href="{% url 'delete_post' post.pk %}">Delete</a>
+                    <button class="btn border-dark bd-highlight"><a class="text-black" href="{% url 'blog' %}">back</a></button>
+                    {% if user.is_authenticated %}
+                    <button class="btn border-dark bd-highlight m-3"><a class="text-black" href="{% url 'update_post' post.pk %}">Edit</a></button>
+                    <button class="btn border-dark bd-highlight"><a class="text-black" href="{% url 'delete_post' post.pk %}">Delete</a></button>
+                    {% else %}
+                    <small class="text-muted m-0 p-2">Sign in to edit and delete posts </small>
+                    {% endif %}
+
                     <strong class="ms-auto bd-highlight">
                         {% if user.is_authenticated %}
                         <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
@@ -51,14 +56,22 @@
                         {% else %}
                         <span class="text-secondary"><i class="fa-regular fa-heart heart-color"></i></span>
                         {% endif %}
-                        <!-- The number of likes goes before the closing strong tag -->
                         <span class="text-secondary">{{ post.number_of_likes }} </span>
                     </strong>
                 </div>
                 
             </div>
+
+
+
         </div>
-        <!--Grid column-->
+
+        <div class="d-inline-block mb-5 p-5" style="width: 800px; background-color: white">
+            <h3>Comments</h3>
+            <hr>
+            
+
+        </div>
     </div>
 </section>
 
