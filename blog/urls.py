@@ -12,5 +12,7 @@ urlpatterns = [
     path("article/edit/<int:pk>", UpdatePostView.as_view(), name="update_post"),
     path("article/<int:pk>/delete", DeletePostView.as_view(), name="delete_post"),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
+    # path("signup/", views.signup, name="signup"),
+
 ]
 
