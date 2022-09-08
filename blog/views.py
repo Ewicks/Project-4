@@ -114,8 +114,3 @@ def index(request):
     """ A view to return the blog page """
     return render(request, 'index.html')
 
-# def signup(request):
-#     """ A view to return the blog page """
-#     return render(request, 'signup.html')
-
-
