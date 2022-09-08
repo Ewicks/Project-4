@@ -227,14 +227,6 @@ footer {
     font-weight: bold;
 }
 
-/* .btn {
-    background-color: #EF5C65;
-    font-size: 30px;
-    border-radius: 30px;
-    padding: 10px 30px;
-    font-weight: bold;
-} */
-
 .white {
     color: #fff;
 }
@@ -284,3 +276,10 @@ h1 {
     color: red;
 }
 
+input {
+    font-size: 20px;
+}
+
+label {
+    color: #EF5C65;
+}
