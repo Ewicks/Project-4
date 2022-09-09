@@ -21,9 +21,9 @@
         <p class="p-2 mb-0  bd-highlight">Sports</p>
         <p class="p-2 mb-0  bd-highlight">Business</p>
         {% if user.is_authenticated %}
-        <button class="btn border-dark ms-auto m-0 p-2 bd-highlight"><a class="text-black" href="{% url 'add_post' %}">Add Post</a></button>
+        <button href="{% url 'add_post' %}" class="btn border-dark btn-clear text-black ms-auto m-0 p-2 bd-highlight">Add Post</button>
         {% else %}
-        <button class="ms-auto m-0 p-2 bd-highlight border-dark btn"><a class="text-black" href="{% url 'account_signup' %}"> Log in/Sign up</a></button>
+        <button href="{% url 'account_signup' %}" class="ms-auto m-0 p-2 bd-highlight btn border-dark btn-clear text-black">Log in/Sign up</button>
         {% endif %}
     </div>
 
@@ -44,11 +44,6 @@
                     <a class="text-black" href="{% url 'delete_post' post.pk %}">Delete</a>
                     {% endif %}
                     <hr>
-                    <!-- views
-                    comments
-                    likes -->
-
-                    <!-- {{ post.likes } -->
                     <p class="card-text text-muted h6">{{ post.created_on}} <i class="fa-regular fa-heart heart-color"></i>
                         {{ post.number_of_likes }}</p>
 

@@ -1,5 +1,7 @@
 {% load static %}
+{% load i18n %}
 
+<!-- {% block head_title %}{% trans "Sign Out" %}{% endblock %} -->
 <!DOCTYPE html>
 <html class="h-100">
 
@@ -28,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}"><span class="brand"><i
-                        class="fa-solid fa-globe"></i>Universal<span class="thin"> Blogs</span></span></span></a>
+                        class="fa-solid fa-globe"></i>Universal<span class="thin">Blogs</span></span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,14 +55,22 @@
                 <div class="navbar-text text-nav">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <!-- <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                         -->
+                        <form method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <button class="btn border-white text-white" type="submit"><a href="{% url 'index' %}"></a> {% trans 'Sign Out' %}</button>
+                        </form>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
+                        <a class="nav-link btn border-white text-white mx-3" href="{% url 'account_signup' %}">Signup</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link btn border-white text-white" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </div>
@@ -79,19 +89,18 @@
             <div class="row">
                 <div class="col center">
                     <div class="position">
-                        <div class="heading mb">Links</div>
-                        <a href="#">Links</a>
-                        <a href="#">Links</a>
-                        <a href="#">Links</a>
+                        <div class="heading">Links</div>
+                        <a href="{% url 'about' %}">About</a>
+                        <a href="{% url 'blog' %}">Blog</a>
+                        <a href="{% url 'contact' %}">Contact</a>
                     </div>
 
                 </div>
                 <div class="col center">
                     <div class="position">
-                        <div class="heading mr">Find Me</div>
-                        <a href=""><i class="fab fa-twitter-square ms-3"></i></a>
-                        <a href=""><i class="fab fa-instagram-square ms-3"></i></a>
-                        <a href=""><i class="fab fa-youtube-square ms-3"></i></p></a>
+                        <div class="heading mb-2">Find Me</div>
+                        <a href="https://www.linkedin.com/in/ethan-wicks-635b40227/" target="_blank"><i class="fa-brands fa-linkedin p-3"></i></a>
+                        <a href="https://github.com/Ewicks" target="_blank"><i class="fa-brands fa-github p-3"></i></a>
                     </div>
 
                 </div>

@@ -283,3 +283,18 @@ input {
 label {
     color: #EF5C65;
 }
+
+.fa-linkedin {
+    font-size: 30px;
+}
+
+.fa-github {
+    font-size: 30px;
+}
+
+.btn-clear:hover {
+    background-color: black;
+    color: white;
+    transition: .5s;
+}
+
