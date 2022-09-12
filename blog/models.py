@@ -6,12 +6,8 @@ from datetime import datetime, date
 from django import forms
 
 
-TOPIC_CHOICES = (
-    ("technology", "Technology"),
-    ("sports", "Sports"),
-    ("business", "business"),
-    ("science", "Science"),
-)
+
+
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -22,6 +18,15 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
+    TOPIC_CHOICES = (
+        ("technology", "Technology"),
+        ("sports", "Sports"),
+        ("business", "Business"),
+        ("science", "Science"),
+        ("other", "Other"),
+    )
+    topics = models.CharField(
+        max_length=50, choices=TOPIC_CHOICES, default="technology")
     first_name = models.CharField(max_length=50, default="unknown")
     second_name = models.CharField(max_length=50, default="unknown")
     content = models.TextField()
