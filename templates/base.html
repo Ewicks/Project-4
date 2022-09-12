@@ -60,7 +60,7 @@
                             {% if redirect_field_value %}
                             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                             {% endif %}
-                            <button class="btn border-white text-white" type="submit"><a href="{% url 'index' %}"></a> {% trans 'Sign Out' %}</button>
+                            <button href="{% url 'index' %}" class="btn border-white text-white" type="submit">{% trans 'Sign Out' %}</button>
                         </form>
                     </li>
                     {% else %}
@@ -109,11 +109,11 @@
         </div>
     </footer>
 
+    <script>
+        document.querySelector('#copyright-year').innerText = new Date().getFullYear();
+    </script>
+    {% block js %}{% endblock %}
 
 </body>
 
 </html>
-
-<script>
-    document.querySelector('#copyright-year').innerText = new Date().getFullYear();
-</script>

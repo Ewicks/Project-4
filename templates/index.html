@@ -24,7 +24,8 @@
                     <button href="{% url 'index' %}" class="btn border-white text-white btn-clear" type="submit">{% trans 'Sign Out' %}</button>
                 </form>
                 {% else %}
-                <button href="{% url 'account_login' %}" type="button" class="btn border-white white btn-clear">Log in</button>
+                <button href="{% url 'account_login' %}" type="button" class="btn border-white white btn-clear">{% trans 'Log in'%}</button>
+                
                 {% endif %}
             </div>
 
