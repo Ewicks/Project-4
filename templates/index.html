@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
+
 
 {% block content %}
 
@@ -13,7 +15,17 @@
             <div class="text-white">
                 <h1>Universal <span class="blogs">Blogs</span></h1>
                 <p class="sub-title">kajsd apoijsd apsoka os</p>
-                <button type="button" class="btn border-white white"><a href="{% url 'account_login' %}">Log in</a></button>
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button href="{% url 'index' %}" class="btn border-white text-white btn-clear" type="submit">{% trans 'Sign Out' %}</button>
+                </form>
+                {% else %}
+                <button href="{% url 'account_login' %}" type="button" class="btn border-white white btn-clear">Log in</button>
+                {% endif %}
             </div>
 
         </div>
