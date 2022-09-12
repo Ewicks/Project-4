@@ -41,14 +41,14 @@
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                 {% endif %}
                 <!-- <img src="" alt="back up image"> -->
-                <p>{{ post.content|safe }}</p>
+                <p class="mt-5">{{ post.content|safe }}</p>
                 
                 <hr class="mt-5 ">
                 <div class="d-flex bd-highlight align-items-center">
-                    <button class="btn border-dark bd-highlight"><a class="text-black" href="{% url 'blog' %}">back</a></button>
+                    <a class="btn border-dark bd-highlight text-black btn-clear" href="{% url 'blog' %}">back</a>
                     {% if user.is_authenticated %}
-                    <button class="btn border-dark bd-highlight m-3"><a class="text-black" href="{% url 'update_post' post.id %}">Edit</a></button>
-                    <button class="btn border-dark bd-highlight"><a class="text-black" href="{% url 'delete_post' post.id %}">Delete</a></button>
+                    <a class="btn border-dark bd-highlight m-3 text-black btn-clear" href="{% url 'update_post' post.id %}">Edit</a>
+                    <a class="btn border-dark bd-highlight text-black btn-clear" href="{% url 'delete_post' post.id %}">Delete</a>
                     {% else %}
                     <small class="text-muted m-0 p-2">Sign in to edit and delete posts </small>
                     {% endif %}
@@ -71,25 +71,12 @@
                         <span class="text-secondary">{{ post.number_of_likes }} </span>
                     </strong>
                 </div>
-                
             </div>
-
-
-
         </div>
 
         <div class="d-inline-block mb-5 p-5" style="width: 800px; background-color: white">
             <h3>Comments</h3>
-
             <hr>
-
-            {% for comment in comments %}
-            {{ comment.body }}
-            {{ comment.name }}
-            {{ comment.created_on }}
-            {% endfor %}
-         
-
         </div>
 
         <div class="col-md-4 card mb-4  mt-3 ">
@@ -107,12 +94,6 @@
                 <form method="post">
                     {% csrf_token %}
                     {{ comment_form}}
-                    {{ commented }}
-
-                    {{ comments }}
-                    {{ comment_form}}
-                    {{ comment_form}}
-
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% endif %}
