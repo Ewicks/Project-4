@@ -298,6 +298,7 @@ label {
     transition: .5s;
 }
 
-.footer-links:hover {
+.r-hover:hover {
     color: #EF5C65;
+    cursor: pointer;
 }
