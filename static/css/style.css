@@ -298,3 +298,6 @@ label {
     transition: .5s;
 }
 
+.footer-links:hover {
+    color: #EF5C65;
+}
