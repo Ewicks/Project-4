@@ -14,9 +14,9 @@
         <p class="p-2 mb-0 bd-highlight">Sports</p>
         <p class="p-2 mb-0 bd-highlight">Business</p>
         {% if user.is_authenticated %}
-        <button class="btn border-dark ms-auto m-0 p-2 bd-highlight"><a class="text-black" href="{% url 'add_post' %}">Add Post</a></button>
+       <a class="text-black btn border-dark ms-auto m-0 p-2 bd-highlight btn-clear" href="{% url 'add_post' %}">Add Post</a>
         {% else %}
-        <button class="ms-auto m-0 p-2 bd-highlight border-dark btn"><a class="text-black" href="{% url 'account_signup' %}">Log in/Sign up</a></button>
+        <a class="ms-auto m-0 p-2 bd-highlight border-dark btn text-black btn-clear" href="{% url 'account_signup' %}">Log in/Sign up</a>
         {% endif %}
         
     </div>
