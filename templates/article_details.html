@@ -34,13 +34,18 @@
                 </div>
                 <h2 class="mb-4">{{ post.title }}</h2>
               
-                <!-- <img class="mb-4" src="{{ post.featured_image }}" height="300px" width="100%" alt=""> -->
-                {% if "placeholder" in post.featured_image.url %}
-                    <img src="{% static 'images/earth.jpg' %}" class="card-img-top" alt="...">
+
+
+                {% if post.featured_image %}
+                <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
+                {% if post.topics == 'Technology' %}
+                <img src="{{ MEDIA_URL }}technology.jpeg" alt="">
                 {% else %}
-                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                 {% endif %}
-                <!-- <img src="" alt="back up image"> -->
+                <img src="{{ MEDIA_URL }}images/earth.jpg" alt="">
+                {% endif %}
+
+                
                 <p class="mt-5">{{ post.content|safe }}</p>
                 
                 <hr class="mt-5 ">
