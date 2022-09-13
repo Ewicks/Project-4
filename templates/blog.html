@@ -33,14 +33,13 @@
         <div class="col my-5">
             <div class="card h-100 bg-white">
                 {% if "placeholder" in post.featured_image.url %}
-                    <img src="{% static 'images/earth.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{{ MEDIA_URL }}images/earth.jpg" class="card-img-top" alt="...">
                 {% else %}
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                 {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title"> <a class="text-black" href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
-                        <br>
-                        <small>By: {{ post.author }} </small></h5>
+                <div id="small-text" class="card-body">
+                    <h5 class="card-title"> <a id="title-hover" class="text-black title-hover" href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h5>
+                    <small >By: {{ post.author }} </small>
                     
                     <p class="card-text">{{ post.content|safe|truncatechars:30 }}</p>
                     {% if user.is_authenticated %}
@@ -61,5 +60,23 @@
     </div>
 </section>
 
+{% endblock %}
+
+
+{% block js %}
+<script>
+    const title = document.getElementById('title-hover')
+    const text = document.getElementById('small-text')
+
+    text.addEventListener('mouseover', () => title.style.color = "#EF5C65")
+    text.addEventListener('mouseleave', () => title.style.color = "black")
+
+
+    document.getElementById("small-text").addEventListener("click", myFunction);
+
+    function myFunction() {
+    document.getElementById("title-hover").click();
+    }
+</script>
 
 {% endblock %}

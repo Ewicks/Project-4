@@ -298,7 +298,12 @@ label {
     transition: .5s;
 }
 
-.r-hover:hover {
+/* .r-hover:hover {
     color: #EF5C65;
     cursor: pointer;
-}
+} */
+
+/* small#lose:hover ~ .title-hover[href="{% url 'article-detail' post.pk %}"] {
+    color: #EF5C65;
+    background-color:blue;
+  } */
