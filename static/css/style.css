@@ -303,3 +303,10 @@ label {
     cursor: pointer;
 }
 
+.text-blue {
+    color: blue;
+}
+
+.text-blue:hover {
+    color: blue;
+}
