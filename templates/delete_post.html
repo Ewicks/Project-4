@@ -4,18 +4,22 @@
 
 {% block content %}
 
-<h1>Delete Blog Post</h1>
-<br><br>
-<h3>Delete: {{ post.title }}</h3>
-
-<br>
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token  %}
-        <strong>Are you sure?</strong><br>
-        <button class="btn">Delete Post</button>
-    </form>    
-</div>
-
+<section id="add-book" class="pb-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col col-md-8">
+            <h3 class="page-title mt-5 mb-5">Delete Post</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col col-md-8">
+            <form method="POST">
+                {% csrf_token  %}
+                <strong>Are you sure you want to delete the post titled: {{ post.title }}?</strong><br>
+                <button class="btn border-dark bd-highlight text-black btn-clear my-3">Delete Post</button>
+                <a class="btn border-dark bd-highlight text-black btn-clear my-3 mx-2" href="{% url 'blog' %}">back</a>
+            </form>   
+        </div>
+    </div>
+</section>
 
 {% endblock %}
