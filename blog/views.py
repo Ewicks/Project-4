@@ -7,11 +7,10 @@ from .models import Post
 from .forms import CommentForm, PostForm
 
 
-
 def TopicView(request, tops):
     topics_posts = Post.objects.filter(topics=tops)
-    # print("topic posts: ", topic_posts)
-    return render(request, 'topics.html', {'tops': tops, 'topics_posts': topics_posts})
+    return render(request, 'topics.html', {
+        'tops': tops, 'topics_posts': topics_posts})
 
 
 class PostDetail(View):
