@@ -36,13 +36,10 @@
               
 
 
-                {% if post.featured_image %}
-                <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
-                {% if post.topics == 'Technology' %}
-                <img src="{{ MEDIA_URL }}technology.jpeg" alt="">
+                {% if "placeholder" in post.featured_image.url%}
+                <img src="{{ post.featured_image.url }}" height="200px" width="200px" class="card-img-top" alt="...">
                 {% else %}
-                {% endif %}
-                <img src="{{ MEDIA_URL }}images/earth.jpg" alt="">
+                <img src="{{ MEDIA_URL }}images/earth.jpg" height="200px" width="200px" alt="">
                 {% endif %}
 
                 

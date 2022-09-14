@@ -11,6 +11,7 @@ urlpatterns = [
     path("article/edit/<int:pk>", views.update_post, name="update_post"),
     path("article/<int:pk>/delete", views.DeletePostView.as_view(), name="delete_post"),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
+    path('topic/<str:tops>/', views.TopicView, name='topic'),
 ]
 
 
