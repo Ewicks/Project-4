@@ -11,7 +11,7 @@
                 <br>Users can also create their own blogs and display them in the blog section  </h3>
           </div>
           <div class="col-sm">
-            <img src="{% static 'images/blog.png' %}" class="img-fluid" alt="">
+            <img src="{{ MEDIA_URL }}images/blog.png " class="img-fluid" alt="">
           </div>
         </div>
       </div>
@@ -27,12 +27,12 @@
                 <p>First you need to create a account, enter the required details</p>  
             </div>
             <div class="col-sm align-self-center">
-                <img src="{% static 'images/create-account.jpeg' %}" height="70%" width="50%" alt="">
+                <img src="{{ MEDIA_URL }}images/create-account.jpeg" height="70%" width="50%" alt="">
             </div>
         </div>
         <div class="row my-5">
             <div class="col-sm align-self-center">
-                <img src="{% static 'images/sign-in.jpeg' %}" height="100%" width="50%" alt="">
+                <img src="{{ MEDIA_URL }}images/sign-in.jpeg" height="100%" width="50%" alt="">
             </div>
             <div class="col-sm align-self-center">
                 <h2 class="color">step 2</h2>
@@ -45,22 +45,27 @@
                 <p>Create new post and fill in your blog post in</p>
             </div>
             <div class="col-sm align-self-center">
-                <img src="{% static 'images/create-post.jpeg' %}" height="70%" width="50%" alt="">
+                <img src="{{ MEDIA_URL }}images/create-post.jpeg" height="70%" width="50%" alt="">
 
             </div>
         </div>
     </div>
 </section>
 
+{% if user.is_authenticated %}
+{% else %}
 <section>
     <div class="container-fluid sign-up-color text-center">
         <div class="row">
             <div class="col-sm my-5">
                 <h2 class="mb-3 bold-text">Get started here<br> click the button below</h2>
-                <button href="{% url 'account_signup' %}" type="button" class="btn border-dark btn-clear text-black">Sign Up</button>
+                
+                <a class="btn border-dark btn-clear text-black" href="{% url 'account_signup' %}">Sign Up</a>
             </div>
         </div>
     </div>
 </section>
+{% endif %}
+
 
 {%endblock%}
