@@ -310,3 +310,7 @@ label {
 .text-blue:hover {
     color: blue;
 }
+
+.blogs-bg {
+    background-color: #E6F0FF;
+}

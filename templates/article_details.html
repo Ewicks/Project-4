@@ -9,10 +9,10 @@
 
 <section class="container-fluid test-color">
     <div class="d-flex bd-highlight p-3 align-items-center">
-        <a href="" class="p-2 mb-0 bd-highlight r-hover text-black">All Posts</a>
-        <a href="" class="p-2 mb-0 bd-highlight r-hover text-black">Technology</a>
-        <a href="" class="p-2 mb-0 bd-highlight r-hover text-black">Sports</a>
-        <a href="" class="p-2 mb-0 bd-highlight r-hover text-black">Business</a>
+        <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight r-hover text-black">All Posts</a>
+        <a href="{% url 'topic' tops='technology' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Technology</a>
+        <a href="{% url 'topic' tops='sports' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Sports</a>
+        <a href="{% url 'topic' tops='Business' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Business</a>
         {% if user.is_authenticated %}
        <a class="text-black btn border-dark ms-auto m-0 p-2 bd-highlight btn-clear" href="{% url 'add_post' %}">Add Post</a>
         {% else %}
@@ -36,10 +36,10 @@
               
 
 
-                {% if "placeholder" in post.featured_image.url%}
-                <img src="{{ post.featured_image.url }}" height="200px" width="200px" class="card-img-top" alt="...">
+                {% if "placeholder" in post.featured_image %}
+                <img src="{{ post.featured_image.url }}" height="400px" width="100%" alt="...">
                 {% else %}
-                <img src="{{ MEDIA_URL }}images/earth.jpg" height="200px" width="200px" alt="">
+                <img src="{{ MEDIA_URL }}images/earth.jpg" height="400px" width="100%" alt="">
                 {% endif %}
 
                 
@@ -79,6 +79,24 @@
         <div class="d-inline-block mb-5 p-5" style="width: 800px; background-color: white">
             <h3>Comments</h3>
             <hr>
+            <div class="card-body">
+                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                            <!-- The comment's created date goes here -->
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    <!-- The body of the comment goes before the | -->
+                    {{ comment.body | linebreaks }}
+                </div>
+                <!-- Our for loop ends here -->
+                {% endfor %}
+            </div>
         </div>
 
         <div class="col-md-4 card mb-4  mt-3 ">
@@ -93,9 +111,9 @@
 
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form method="post">
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
                     {% csrf_token %}
-                    {{ comment_form}}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% endif %}
