@@ -314,3 +314,7 @@ label {
 .blogs-bg {
     background-color: #E6F0FF;
 }
+
+.nav-link:hover {
+    border-bottom: 1.5px solid white;
+}
