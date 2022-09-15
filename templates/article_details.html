@@ -12,7 +12,7 @@
         <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight r-hover text-black">All Posts</a>
         <a href="{% url 'topic' tops='technology' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Technology</a>
         <a href="{% url 'topic' tops='sports' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Sports</a>
-        <a href="{% url 'topic' tops='Business' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Business</a>
+        <a href="{% url 'topic' tops='business' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Business</a>
         {% if user.is_authenticated %}
        <a class="text-black btn border-dark ms-auto m-0 p-2 bd-highlight btn-clear" href="{% url 'add_post' %}">Add Post</a>
         {% else %}
@@ -30,7 +30,8 @@
                 <p class="color">{{ post.topics }}</p>
                 <div class="d-flex bd-highlight">
                     <p class="bd-highlight">By: {{ post.author }} | <small>{{ post.created_on }}</small></p>
-                    <p class="ms-auto bd-highlight"><a href="#"><i class="fa-regular fa-share-from-square text-black"></i></a></p>
+                    <a class="btn border-dark bd-highlight text-black btn-clear ms-auto bd-highlight" href="{% url 'blog' %}">back</a>
+
                 </div>
                 <h2 class="mb-4">{{ post.title }}</h2>
               
@@ -47,7 +48,6 @@
                 
                 <hr class="mt-5 ">
                 <div class="d-flex bd-highlight align-items-center">
-                    <a class="btn border-dark bd-highlight text-black btn-clear" href="{% url 'blog' %}">back</a>
                     {% if user.is_authenticated %}
                     <a class="btn border-dark bd-highlight m-3 text-black btn-clear" href="{% url 'update_post' post.id %}">Edit</a>
                     <a class="btn border-dark bd-highlight text-black btn-clear" href="{% url 'delete_post' post.id %}">Delete</a>
