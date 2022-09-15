@@ -5,10 +5,6 @@ from django.urls import reverse
 from datetime import datetime, date
 from django import forms
 
-
-
-
-
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
@@ -33,7 +29,6 @@ class Post(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
@@ -64,8 +59,5 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
-    class Meta:
-        ordering = ["created_on"]
-
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return '%s - %s' % (self.post.title, self.name)
