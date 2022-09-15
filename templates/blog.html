@@ -56,15 +56,30 @@
                         <p class="card-text text-muted h6">{{ post.created_on }} <i
                                 class="fa-regular fa-heart heart-color"></i>
                             {{ post.number_of_likes }}</p>
-
-
-
                     </div>
                 </div>
             </div>
             {% endfor %}
-
         </div>
+
+        <p class="text-center">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </p>
+        
+        <div class="d-flex justify-content-center">
+            <ul style="margin-left: 10px;" class="pagination ">
+                {% if page_obj.has_previous %}
+                <li class="px-2"><a class="p-2 bd-highlight btn border-dark btn-clear text-black" href="?page=1">&laquo; first</a></li>
+                <li class="px-2"><a class="p-2 bd-highlight btn border-dark btn-clear text-black" href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+                {% endif %}
+
+                {% if page_obj.has_next %}
+                <li class="px-2"><a class="p-2 bd-highlight btn border-dark btn-clear text-black align-items-center" href="?page={{ page_obj.next_page_number }}">next page</a></li>
+                <li class="px-2"><a class="p-2 bd-highlight btn border-dark btn-clear text-black" href="?page={{ page_obj.paginator.num_pages }}">last page</a></li>
+                {% endif %}
+            </ul>
+        </div>
+       
     </section>
 
 </main>
