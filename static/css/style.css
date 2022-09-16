@@ -381,3 +381,7 @@ a {
 .b-hover:hover {
     color: black;
 }
+
+.purple-hover:hover {
+    color: rgb(163, 7, 163);
+}

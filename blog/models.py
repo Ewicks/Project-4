@@ -18,7 +18,6 @@ class Post(models.Model):
         ("technology", "Technology"),
         ("sports", "Sports"),
         ("business", "Business"),
-        ("science", "Science"),
         ("other", "Other"),
     )
     topics = models.CharField(
@@ -58,5 +57,5 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
-    def __str__(self):
-        return '%s - %s' % (self.post.title, self.name)
+    # def __str__(self):
+    #     return '%s - %s' % (self.post.title, self.name)

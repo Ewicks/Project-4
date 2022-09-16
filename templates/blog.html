@@ -93,11 +93,11 @@
                     </div>
                     <div class="widget-tags">
                         <ul class="p-0 align-items-center">
-                            <li><a class="b-hover" href="{% url 'blog' %}">All Posts</a></li>
-                            <li><a class="b-hover" href="{% url 'topic' tops='technology' %}">Technology</a></li>
-                            <li><a class="b-hover" href="{% url 'topic' tops='business' %}">Business</a></li>
-                            <li><a class="b-hover" href="{% url 'topic' tops='sports' %}">Sports</a></li>
-                            <li><a class="b-hover" href="{% url 'topic' tops='other' %}">Other</a></li>
+                            <li><a class="r-hover" href="{% url 'blog' %}">All Posts</a></li>
+                            <li><a class="r-hover" href="{% url 'topic' tops='technology' %}">Technology</a></li>
+                            <li><a class="r-hover" href="{% url 'topic' tops='business' %}">Business</a></li>
+                            <li><a class="r-hover" href="{% url 'topic' tops='sports' %}">Sports</a></li>
+                            <li><a class="r-hover" href="{% url 'topic' tops='other' %}">Other</a></li>
                         </ul>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                                 {% endif %}
                             </div>
                             <div class="content">
-                                <strong><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></strong>
+                                <strong><a class="r-hover" href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></strong>
                                 <br>
                                 <small>by: {{ post.author }}</small>
                             </div>
