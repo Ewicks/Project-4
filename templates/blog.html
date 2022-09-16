@@ -13,10 +13,9 @@
                 <h1 class="text-center p-5 color">Universal Blogs</h1>
             </div>
         </div>
-
     </section>
 
-    <section class="container test-color">
+    <section class="container">
         <div class="d-flex bd-highlight p-3 align-items-center">
             <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight text-black r-hover">All Posts</a>
             <a href="{% url 'topic' tops='technology' %}"
@@ -37,9 +36,9 @@
             {% for post in object_list %}
 
             <div class="col my-5">
-                <div class="card h-100 bg-white card-shape">
+                <div class="card h-100 bg-white">
                     {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-shape" src="{{ MEDIA_URL }}images/earth.jpg" class="card-img-top" alt="...">
+                    <img src="{{ MEDIA_URL }}images/earth.jpg" class="card-img-top" alt="...">
                     {% else %}
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                     {% endif %}
@@ -83,69 +82,30 @@
        
     </section>
 
+
     <section class="container">
+
         <div class="row">
             <div class="col">
-                <h3>Latest Posts</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    {% for post in object_list %}
-                    {% if forloop.counter < 3 %}
-
-                    <div class="col my-5">
-                        <div class="card h-100 bg-white">
-                            {% if "placeholder" in post.featured_image.url %}
-                            <img src="{{ MEDIA_URL }}images/earth.jpg" class="card-img-top" alt="...">
-                            {% else %}
-                            <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
-                            {% endif %}
-                            <div id="small-text" class="card-body">
-                                <h5 class="card-title"> <a id="title-hover" class="text-black title-hover"
-                                        href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h5>
-                                <small>By: {{ post.author }} </small>
-
-                                <p class="card-text">{{ post.content|safe|truncatechars:30 }}</p>
-                                {% if user.is_authenticated %}
-                                <a class="text-black" href="{% url 'update_post' post.id %}">Edit</a>
-                                <a class="text-black" href="{% url 'delete_post' post.id %}">Delete</a>
-                                {% endif %}
-                                <hr>
-                                <p class="card-text text-muted h6">{{ post.created_on }} <i
-                                        class="fa-regular fa-heart heart-color"></i>
-                                    {{ post.number_of_likes }}</p>
-                            </div>
-                        </div>
+                <div class="widget">
+                    <div class="latest-title">
+                        <h4><strong>Categorys</strong></h4>
                     </div>
-                    {% endif %}
-                    {% endfor %}
+                    <div class="widget-tags">
+                        <ul class="p-0 align-items-center">
+                            <li><a class="b-hover" href="{% url 'blog' %}">All Posts</a></li>
+                            <li><a class="b-hover" href="{% url 'topic' tops='technology' %}">Technology</a></li>
+                            <li><a class="b-hover" href="{% url 'topic' tops='business' %}">Business</a></li>
+                            <li><a class="b-hover" href="{% url 'topic' tops='sports' %}">Sports</a></li>
+                            <li><a class="b-hover" href="{% url 'topic' tops='other' %}">Other</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <section>
-        <div class="row">
-            <div class="col">
-                <h3>Latest Posts</h3>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-            </div>
-            <div class="col">
             </div>
             <div class="col">
                 <div class="widget">
                     <div class="latest-title">
-                        <h4>Latest Posts</h4>
+                        <h4><strong>Latest Posts</strong></h4>
                     </div>
                     <ul class="widget-latest-posts">
                         {% for post in object_list %}
@@ -154,26 +114,20 @@
                             <div class="image">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="latest-img" src="{{ MEDIA_URL }}images/earth.jpg" height="75" width="75" class="card-img-top"
-                                    alt="...">
+                                    alt="..." src="{% url 'article-detail' post.pk %}">
                                 {% else %}
                                 <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                                 {% endif %}
                             </div>
                             <div class="content">
-                                <strong> {{ post.title }}</strong>
+                                <strong><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></strong>
+                                <br>
                                 <small>by: {{ post.author }}</small>
                             </div>
                         </li>
                         {% endif %}
                         {% endfor %}
                     </ul>
-                   
-                  
-                        
-                    
-                  
-
-               
                 </div>
 
             </div>
@@ -181,8 +135,6 @@
 
     </section>
 </main>
-
-
 
 {% endblock %}
 

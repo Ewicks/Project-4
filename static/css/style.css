@@ -347,10 +347,37 @@ label {
     margin-bottom: 30px;
 }
 
-.card-shape {
-    border-radius: 30px;
-}
 
 .created-on-font {
     font-size: 10px;
+}
+
+
+.widget-tags ul li {
+    background-color: #E6F0FF;
+    padding: 4px 11px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+    border-radius: 20px;
+    font-size: 13px;
+    text-transform: capitalize;
+    color: #506172;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+.widget-tags ul {
+   display: flex;
+   list-style: none;
+}
+
+
+.b-hover:hover {
+    color: black;
 }
