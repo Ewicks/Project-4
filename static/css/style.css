@@ -213,10 +213,6 @@ footer {
     transform: translateX(-50%) translateY(-50%);
 }
 
-.hero-overlay {
-
-}
-
 .hero__content {
     z-index: 1;
 }
@@ -317,4 +313,44 @@ label {
 
 .nav-link:hover {
     border-bottom: 1.5px solid white;
+}
+
+.widget {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0px 5px 20px 0px rgb(69 67 96 / 10%);
+    box-shadow: 0px 5px 20px 0px rgb(69 67 96 / 10%);
+    margin-right: 30px;
+}
+
+.widget-latest-posts {
+    padding: 0;
+}
+
+.latest-posts {
+    display: flex;
+    margin-bottom: 30px;
+
+}
+
+.latest-img {
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.latest-title h4{
+    text-transform: capitalize;
+}
+.latest-title {
+    margin-bottom: 30px;
+}
+
+.card-shape {
+    border-radius: 30px;
+}
+
+.created-on-font {
+    font-size: 10px;
 }
