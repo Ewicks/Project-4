@@ -49,7 +49,7 @@
                     {% else %}
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                     {% endif %}
-                    <div id="small-text" class="card-body">
+                    <div id="card-details" class="card-body">
                         <h5 class="card-title"> <a id="title-hover" class="text-black title-hover"
                                 href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h5>
                         <small>By: {{ post.author }} </small>
