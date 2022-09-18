@@ -22,8 +22,6 @@ class Post(models.Model):
     )
     topics = models.CharField(
         max_length=50, choices=TOPIC_CHOICES, default="technology")
-    first_name = models.CharField(max_length=50, default="unknown")
-    second_name = models.CharField(max_length=50, default="unknown")
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     updated_on = models.DateTimeField(auto_now=True)
