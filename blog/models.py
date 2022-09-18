@@ -44,9 +44,7 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
-
-
-
+        
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
@@ -57,5 +55,12 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
-    # def __str__(self):
-    #     return '%s - %s' % (self.post.title, self.name)
+
+class Contact(models.Model):
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

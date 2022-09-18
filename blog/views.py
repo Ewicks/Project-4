@@ -4,8 +4,9 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from .models import Post
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, ContactForm
 from django.core.paginator import Paginator
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 def TopicView(request, tops):
@@ -118,11 +119,26 @@ def about(request):
     return render(request, 'about.html')
 
 
-def contact(request):
-    """ A view to return the contact page """
-    return render(request, 'contact.html')
+# def contact(request):
+#     """ A view to return the contact page """
+#     return render(request, 'contact.html')
 
 
 def index(request):
     """ A view to return the blog page """
     return render(request, 'index.html')
+
+
+def contact(request):
+    submitted = False
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/contact?submitted=True')
+    else:
+        form = ContactForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
