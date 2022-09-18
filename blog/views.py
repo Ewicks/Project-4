@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import CommentForm, PostForm, ContactForm
 from django.core.paginator import Paginator
-from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import Q
 
 
 def TopicView(request, tops):
@@ -142,3 +142,19 @@ def contact(request):
             submitted = True
     form = ContactForm()
     return render(request, 'contact.html', {'form': form})
+
+
+def search_posts(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        posts = Post.objects.filter(
+            Q(title__icontains=searched) |
+            Q(featured_image__icontains=searched) |
+            Q(author__username__icontains=searched) |
+            Q(content__icontains=searched) | 
+            Q(created_on__icontains=searched) | 
+            Q(likes__username__icontains=searched))
+
+        return render(request, 'search_posts.html',  {'searched': searched, 'posts': posts})
+    else:
+        return render(request, 'search_posts.html',  {})

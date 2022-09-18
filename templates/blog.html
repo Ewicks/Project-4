@@ -16,7 +16,7 @@
     </section>
 
     <section class="container">
-        <div class="d-flex bd-highlight p-3 align-items-center">
+        <div class="d-flex bd-highlight py-3 align-items-center">
             <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight text-black r-hover">All Posts</a>
             <a href="{% url 'topic' tops='technology' %}"
                 class="p-2 mb-0 bd-highlight text-black r-hover">Technology</a>
@@ -31,6 +31,12 @@
                 class="ms-auto m-0 p-2 bd-highlight btn border-dark btn-clear text-black">Log in/Sign up</a>
             {% endif %}
         </div>
+        <form class="d-flex" method=POST action="{% url 'search_posts' %}">
+            {% csrf_token %}
+            <input class="form-control me-2 " type="search" placeholder="Search Articles"
+                aria-label="Search Articles" name="searched" style="width: 600px;">
+            <button class="btn btn-outline-info search_button" type="submit">Search</button>
+        </form>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for post in object_list %}

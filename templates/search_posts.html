@@ -1,31 +1,18 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block title %}{% endblock %}
+{% extends 'base.html' %}
 
 
 {% block content %}
 
-<!-- <h1>{{ tops }}</h1> -->
 
-{% if topics_posts %}
 
 <main class="blogs-bg">
-
-    <section class="container-fluid">
-        <div class="row bg-dark">
-            <div class="col-sm">
-                <h1 class="text-center p-5 color">Universal Blogs</h1>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="container test-color">
+    <div class="container">
+        {% if searched %}
+            <h2 class="pt-4">You searched for '{{ searched }}'</h2>
+        {% endif %}
         <div class="d-flex bd-highlight py-3 align-items-center">
             <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight text-black r-hover">All Posts</a>
-            <a href="{% url 'topic' tops='technology' %}"
-                class="p-2 mb-0 bd-highlight text-black r-hover">Technology</a>
+            <a href="{% url 'topic' tops='technology' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Technology</a>
             <a href="{% url 'topic' tops='sports' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Sports</a>
             <a href="{% url 'topic' tops='business' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Business</a>
             <a href="{% url 'topic' tops='other' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Other</a>
@@ -37,13 +24,18 @@
                 class="ms-auto m-0 p-2 bd-highlight btn border-dark btn-clear text-black">Log in/Sign up</a>
             {% endif %}
         </div>
-
+        <form class="d-flex" method=POST action="{% url 'search_posts' %}">
+            {% csrf_token %}
+            <input class="form-control me-2 " type="search" placeholder="Search Articles" aria-label="Search Articles"
+                name="searched" style="width: 600px;">
+            <button class="btn btn-outline-info search_button" type="submit">Search</button>
+        </form>
+    
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            {% for post in topics_posts %}
-
+            {% for post in posts %}
+    
             <div class="col my-5">
                 <div class="card h-100 bg-white">
-
                     {% if "placeholder" in post.featured_image.url %}
                     <img src="{{ MEDIA_URL }}images/earth.jpg" class="card-img-top" alt="...">
                     {% else %}
@@ -53,7 +45,7 @@
                         <h5 class="card-title"> <a id="title-hover" class="text-black title-hover"
                                 href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h5>
                         <small>By: {{ post.author }} </small>
-
+    
                         <p class="card-text">{{ post.content|safe|truncatechars:30 }}</p>
                         {% if user.is_authenticated %}
                         <a class="text-black" href="{% url 'update_post' post.id %}">Edit</a>
@@ -64,20 +56,13 @@
                                 class="fa-regular fa-heart heart-color"></i>
                             {{ post.number_of_likes }}</p>
                     </div>
-
                 </div>
             </div>
             {% endfor %}
-
-
-
         </div>
-
-    </section>
+    </div>
+    
+    
 </main>
-
-{% else %}
-    <h1>Page does not exist</h1>
-{% endif %}
 
 {% endblock %}
