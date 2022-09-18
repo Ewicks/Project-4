@@ -11,7 +11,6 @@
 {% if topics_posts %}
 
 <main class="blogs-bg">
-
     <section class="container-fluid">
         <div class="row bg-dark">
             <div class="col-sm">
@@ -68,16 +67,18 @@
                 </div>
             </div>
             {% endfor %}
-
-
-
         </div>
-
     </section>
 </main>
 
 {% else %}
-    <h1>Page does not exist</h1>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h2>Page does not exist</h2>
+            <p>Please click the below button to go back to the Blog page</p>
+            <a class="btn border-dark bd-highlight text-black btn-clear my-2" href="{% url 'blog' %}">back</a>
+        </div>
+    </div>
 {% endif %}
 
 {% endblock %}
