@@ -142,6 +142,8 @@
 {% block js %}
 <script>
 
+    
+    
     document.getElementById("card-details").addEventListener("mouseover", hoverFunction);
 
     function hoverFunction() {
@@ -157,9 +159,9 @@
     }
 
 
-    document.getElementById("card-details").addEventListener("click", myFunction);
+    document.getElementById("card-details").addEventListener("click", clickFunction);
 
-    function myFunction() {
+    function clickFunction() {
     document.getElementById("title-hover").click();
     }
 </script>
