@@ -42,7 +42,7 @@
                     {% else %}
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                     {% endif %}
-                    <div id="small-text" class="card-body">
+                    <div mouseover="hoverFunction" id="card-details" class="card-body">
                         <h5 class="card-title"> <a id="title-hover" class="text-black title-hover"
                                 href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h5>
                         <small>By: {{ post.author }} </small>
@@ -141,14 +141,15 @@
 
 {% block js %}
 <script>
-    const title = document.getElementById('title-hover')
-    const text = document.getElementById('small-text')
 
-    text.addEventListener('mouseover', () => title.style.color = "#EF5C65")
-    text.addEventListener('mouseleave', () => title.style.color = "black")
+    document.getElementById("card-details").addEventListener("mouseover", hoverFunction);
 
+    function hoverFunction() {
+        document.getElementById("card-details").style.cursor = "pointer";
+        document.getElementById("title-hover").style.color = "#EF5C65";
+    }
 
-    document.getElementById("small-text").addEventListener("click", myFunction);
+    document.getElementById("card-details").addEventListener("click", myFunction);
 
     function myFunction() {
     document.getElementById("title-hover").click();
