@@ -41,7 +41,7 @@
                 {% if "placeholder" in post.featured_image %}
                 <img src="{{ post.featured_image.url }}" height="400px" width="100%" alt="...">
                 {% else %}
-                <img src="{{ MEDIA_URL }}images/earth.jpg" height="400px" width="100%" alt="">
+                <img src="{% static 'images/earth.jpg' %}" height="400px" width="100%" alt="">
                 {% endif %}
 
                 

@@ -5,8 +5,6 @@
 {% block content %}
 
 <main class="blogs-bg">
-
-
     <section class="container-fluid">
         <div class="row bg-dark">
             <div class="col-sm">
@@ -88,7 +86,6 @@
        
     </section>
 
-
     <section class="container">
 
         <div class="row">
@@ -119,7 +116,7 @@
                         <li class="latest-posts">
                             <div class="image">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="latest-img" src="{{ MEDIA_URL }}images/earth.jpg" height="75" width="75" class="card-img-top"
+                                <img class="latest-img" src="{% static 'images/' %}{{ post.topics }}.png" height="75" width="75" class="card-img-top"
                                     alt="..." src="{% url 'article-detail' post.pk %}">
                                 {% else %}
                                 <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">

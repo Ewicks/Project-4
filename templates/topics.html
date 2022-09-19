@@ -41,7 +41,7 @@
                 <div class="card h-100 bg-white">
 
                     {% if "placeholder" in post.featured_image.url %}
-                    <img src="{{ MEDIA_URL }}images/earth.jpg" class="card-img-top" alt="...">
+                    <img src="{% static 'images/' %}{{ post.topics }}.png" class="card-img-top" alt="...">
                     {% else %}
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                     {% endif %}
