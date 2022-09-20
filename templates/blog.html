@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load cloudinary %}
 
 {% block content %}
 
+<!-- Blog page -->
 <main class="blogs-bg">
     <section class="container-fluid">
         <div class="row bg-dark">
@@ -36,13 +37,28 @@
             <button class="btn btn-outline-info search_button" type="submit">Search</button>
         </form>
 
+        <img src="https://res.cloudinary.com/ethan123/image/upload/v1663608825/business_yna114.jpg" alt="">
+
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for post in object_list %}
 
             <div class="col my-5">
                 <div class="card h-100 bg-white">
                     {% if "placeholder" in post.featured_image.url %}
-                    <img src="{% static 'images/' %}{{ post.topics }}.png" class="card-img-top" alt="...">
+                    {% if post.topics == 'technology' %}
+                    <img src="https://res.cloudinary.com/ethan123/image/upload/v1663687959/static/images/technology_oqsk9j.jpg"
+                        alt="">
+                    {% if post.topics == 'sports' %}
+                    <img src="https://res.cloudinary.com/ethan123/image/upload/v1663687945/static/images/sports_fnhtqw.jpg"
+                        alt="">
+                    {% if post.topics == 'business' %}
+                    <img src="https://res.cloudinary.com/ethan123/image/upload/v1663608825/business_yna114.jpg" alt="">
+                    {% else %}
+                    <img src="https://res.cloudinary.com/ethan123/image/upload/v1663687952/static/images/other_xcklgt.jpg"
+                        alt="">
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
                     {% else %}
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                     {% endif %}
