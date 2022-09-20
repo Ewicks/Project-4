@@ -47,7 +47,10 @@ To visit the deployed website click [here](https://universal-blogs-project-4.her
 <details>
   <summary>Click here to view all wireframes both Desktop & mobile:</summary>
 
-  <!-- ![](docs/wireframe_homepage.PNG) -->
+  ![](doc/wireframes/wireframe-home.png)
+  ![](doc/wireframes/wireframe-about.png)
+  ![](doc/wireframes/wireframe-blog.png)
+  ![](doc/wireframes/wireframe-contact.png)
   
 
   </details>
