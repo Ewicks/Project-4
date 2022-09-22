@@ -73,7 +73,6 @@ class PostList(ListView):
     template_name = "blog.html"
     paginate_by = 6
     ordering = ["-updated_on"]
-    # ordering = ["-id"]
 
 
 @login_required
@@ -119,11 +118,6 @@ def about(request):
     return render(request, 'about.html')
 
 
-# def contact(request):
-#     """ A view to return the contact page """
-#     return render(request, 'contact.html')
-
-
 def index(request):
     """ A view to return the blog page """
     return render(request, 'index.html')
@@ -151,10 +145,11 @@ def search_posts(request):
             Q(title__icontains=searched) |
             Q(featured_image__icontains=searched) |
             Q(author__username__icontains=searched) |
-            Q(content__icontains=searched) | 
-            Q(created_on__icontains=searched) | 
+            Q(content__icontains=searched) |
+            Q(created_on__icontains=searched) |
             Q(likes__username__icontains=searched))
 
-        return render(request, 'search_posts.html',  {'searched': searched, 'posts': posts})
+        return render(
+            request, 'search_posts.html',  {'searched': searched, 'posts': posts})
     else:
         return render(request, 'search_posts.html',  {})

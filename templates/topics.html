@@ -47,11 +47,11 @@
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                     {% endif %}
                     <div id="card-details" class="card-body">
-                        <h5 class="card-title"> <a id="title-hover" class="text-black title-hover"
-                                href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h5>
-                        <small>By: {{ post.author }} </small>
+                        <h5 class="card-title"><a id="title-hover" class="text-black title-hover"
+                                href="{% url 'article-detail' post.pk %}"><strong>{{ post.title }}</strong></a></h5>
+                        <small>By: {{ post.author }}</small>
 
-                        <p class="card-text">{{ post.content|safe|truncatechars:30 }}</p>
+                        <p class="card-text my-2">{{ post.content|safe|truncatechars:30 }}</p>
                         {% if user.is_authenticated %}
                         <a class="text-black" href="{% url 'update_post' post.id %}">Edit</a>
                         <a class="text-black" href="{% url 'delete_post' post.id %}">Delete</a>

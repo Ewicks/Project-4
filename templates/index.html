@@ -15,7 +15,7 @@
         <div class="d-flex h-100 align-items-center">
             <div class="text-white">
                 <h1>Universal <span class="blogs">Blogs</span></h1>
-                <p class="sub-title">kajsd apoijsd apsoka os</p>
+                <p class="sub-title">Read or create blog posts</p>
                 {% if user.is_authenticated %}
                 <form method="post" action="{% url 'account_logout' %}">
                     {% csrf_token %}

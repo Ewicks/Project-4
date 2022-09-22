@@ -67,11 +67,11 @@
                     {% endif %}
                     
                     <div id="card-details" class="card-body">
-                        <h5 class="card-title"> <a id="title-hover" class="text-black title-hover"
-                                href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h5>
+                        <h5 class="card-title"><a id="title-hover" class="text-black title-hover"
+                                href="{% url 'article-detail' post.pk %}"><strong>{{ post.title }}</strong></a></h5>
                         <small>By: {{ post.author }} </small>
 
-                        <p class="card-text">{{ post.content|safe|truncatechars:30 }}</p>
+                        <p class="card-text my-2">{{ post.content|safe|truncatechars:60 }}</p>
                         {% if user.is_authenticated %}
                         <a class="text-black" href="{% url 'update_post' post.id %}">Edit</a>
                         <a class="text-black" href="{% url 'delete_post' post.id %}">Delete</a>
@@ -86,9 +86,14 @@
             {% endfor %}
         </div>
 
+        {% if page_obj %}
         <p class="text-center">
             Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
         </p>
+        {% else %}
+        <br>
+        <br>
+        {% endif %}
         
         <div class="d-flex justify-content-center">
             <ul style="margin-left: 10px;" class="pagination ">
