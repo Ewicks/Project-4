@@ -179,7 +179,80 @@ The Contact table is used when users submit the form in the contact us page.
 
 - 
 
+### Unfixed Bugs
+
+
+## Technologies Used
+
+Languages Used
+- [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Python](https://www.python.org/)
+
+Frameworks, Libraries & Programs Used
+
+- [amiresponsive](https://ui.dev/amiresponsive) to display the responsive website image on different size devices.
+- [Balsamiq](https://balsamiq.com) to create wireframes.
+- [Cloudinary](https://cloudinary.com) used to upload, store, manage, minipulate and provide images.
+- [Django](https://www.djangoproject.com) is a free open-source Python web framework that follows the model-template-views architectural pattern.
+- [Font Awesome](https://fontawesome.com) used to display icons for asthetic purposes
+- [Git](https://git-scm.com) is version control software which can be used via the Gitpod terminal to commit and push to GitHub
+- [Github](https://github.com) is used to store projects containing code
+- [Gitpod](https://www.gitpod.io) is a online IDE linked to the GitHub repository used to write this project
+- [Google Chrome Dev tools](https://developer.chrome.com/docs/devtools/) used for debugging code
+- [Heroku](https://www.heroku.com) is used to deploy this project. Heroku is a cloud platform as a service supporting several programming languages.
+
 ## Testing
 
 ### The W3C Markup Validator
+
+
+## Deployment
+
+* Log in to [Heroku](https://id.heroku.com/login) or create an account
+* On the main page click New and Create New App
+* Note: new app name must be unique
+* Next select your region, I chose Europe.
+* Click Create App button
+* Click in resources and select Heroku Postgres database
+* Click Reveal Config Vars and add new config "SECRET_KEY"
+* Click Reveal Config Vars and add new config "CLOUDINARY_URL"
+* Click Reveal Config Vars and add new config "DISABLE_COLLECTSTATIC = 1"
+* The next page is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars
+* Next, go to Buildpack section click Add Buildpack select python and Save Changes
+* Scroll to the top of the page and choose the Deploy tab
+* Select Github as the deployment method
+* Confirm you want to connect to GitHub
+* Search for the repository name and click the connect button
+* Scroll to the bottom of the deploy page and select the preferred deployment type
+* Click either Enable Automatic Deploys for automatic deployment when you push updates to Github
+
+### Final Deployment 
+
+* Create a runtime.txt `python-3.8.13`
+* Create a Procfile `web: gunicorn heardit.wsgi`
+* When development is complete change the debug setting to: `DEBUG = False` in settings.py
+* In this project the summernote editor was used so for this to work in Heroku add: `X_FRAME_OPTIONS = SAMEORIGIN `to
+   settings.py.
+* In Heroku settings, delete the config vars for `DISABLE_COLLECTSTATIC = 1`
+
+### Forking This Project
+
+* Open [GitHub](https://github.com/Ewicks/universal-blogs-project-4)
+* Find the 'Fork' button at the top right of the page
+* Once you click the button the fork will be in your repository
+
+### Cloning This Project
+
+* Clone this project by following the steps:
+
+* Open [GitHub](https://github.com/Ewicks/universal-blogs-project-4)
+* You will be provided with three options to choose from, HTTPS, SSH or GitHub CLI, click the clipboard icon in order
+to copy the URL
+* Once you click the button the fork will be in your repository
+* Open a new terminal
+* Change the current working directory to the location that you want the cloned directory
+* Type 'git clone' and paste the URL copied in step 3
+* Press 'Enter' and the project is cloned
 
