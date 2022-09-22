@@ -238,7 +238,7 @@ h1 {
     font-size: 40px;
 }
 
-.color {
+.red-c {
     color: #EF5C65;
 }
 
@@ -272,7 +272,13 @@ h1 {
 }
 
 input {
-    font-size: 20px;
+    color: white;
+    background-color: gray;
+}
+
+textarea {
+    background-color: gray;
+    color: white;
 }
 
 label {
@@ -308,6 +314,7 @@ label {
 
 .blogs-bg {
     background-color: #E6F0FF;
+
 }
 
 .nav-link:hover {
@@ -382,3 +389,34 @@ a {
     color: black;
 }
 
+.card-bg {
+    background-color: #040e1d;
+    border-radius: 20px;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+/* .text-gray {
+    color: gray;
+} */
+
+.btn-red {
+    color: #EF5C65;
+    border-color: #EF5C65;
+}
+.btn-red:hover {
+    color: white;
+    border-color: white;
+}
+
+li {
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+textarea {
+    height:auto;
+    width: 600px;
+}

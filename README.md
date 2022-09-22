@@ -55,7 +55,6 @@ To visit the deployed website click [here](https://universal-blogs-project-4.her
 
   </details>
 
-### Navigation
 
 ### Database Schema
 
@@ -80,3 +79,11 @@ not done yet
 ### blog Page
 
 ### Contact Page
+
+
+
+
+## Testing
+
+### The W3C Markup Validator
+
