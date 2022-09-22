@@ -256,3 +256,20 @@ to copy the URL
 * Type 'git clone' and paste the URL copied in step 3
 * Press 'Enter' and the project is cloned
 
+
+## Credits
+
+* Code Institute "I think therefore i blog" - Django blog project Walkthrough
+* Codemy.com blog post tutorials using django - [Youtube playlist](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi)
+
+
+## Acknowledgements
+* I used Code Institute's material in the Full Stack Development course.
+* W3Schools, youtube clips and stackoverflow resources helped my through the project
+* Tim - Code Institute mentor
+
+This project is for educational use only and was created for the Code Institute Module.
+
+Created by Ethan Wicks
+
+
