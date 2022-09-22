@@ -417,3 +417,7 @@ textarea {
     height:auto;
     width: 430px;
 }
+
+ul {
+    list-style: none;
+}

@@ -14,7 +14,7 @@
         </div>
     </section>
 
-    <section class="container">
+    <section class="container light-bg">
         <div class="d-flex bd-highlight py-3 align-items-center">
             <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight text-black r-hover">All Posts</a>
             <a href="{% url 'topic' tops='technology' %}"
@@ -46,16 +46,16 @@
                     {% if "placeholder" in post.featured_image.url %}
                         {% if post.topics == 'technology' %}
                         <img src="https://res.cloudinary.com/ethan123/image/upload/v1663687959/static/images/technology_oqsk9j.jpg"
-                            alt="" width="100%" height="300">
+                            alt="" height="300">
                         {% endif %}
                     
                         {% if post.topics == 'sports' %}
                         <img src="https://res.cloudinary.com/ethan123/image/upload/v1663687945/static/images/sports_fnhtqw.jpg"
-                            alt="" width="100%" height="300">
+                            alt="" height="300">
                         {% endif %}
                         
                         {% if post.topics == 'business' %}
-                        <img src="https://res.cloudinary.com/ethan123/image/upload/v1663608825/business_yna114.jpg" alt="" width="100%" height="300">
+                        <img src="https://res.cloudinary.com/ethan123/image/upload/v1663608825/business_yna114.jpg" alt="" height="300">
                         {% endif %}
 
                         {% if post.topics == 'others' %}
@@ -63,11 +63,11 @@
                             alt="" width="100%" height="300">
                         {% endif %}
                     {% else %}
-                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="..." width="100%" height="300">
+                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="..." height="300">
                     {% endif %}
                     
                     <div id="card-details" class="card-body">
-                        <h5 class="card-title"><a id="title-hover" class="text-black title-hover"
+                        <h5 class="card-title"><a id="title-hover" class="text-black"
                                 href="{% url 'article-detail' post.pk %}"><strong>{{ post.title }}</strong></a></h5>
                         <small>By: {{ post.author }} </small>
 
@@ -141,16 +141,16 @@
                         <li class="latest-posts">
                             <div class="image">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="latest-img" src="{% static 'images/' %}{{ post.topics }}.png" height="75" width="75" class="card-img-top"
-                                    alt="..." src="{% url 'article-detail' post.pk %}">
+                                <img class="latest-img" src="{% static 'images/' %}{{ post.topics }}.png" height="75" width="75"
+                                    alt="">
                                 {% else %}
                                 <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
                                 {% endif %}
                             </div>
                             <div class="content">
-                                <strong><a class="r-hover" href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></strong>
+                                <strong><a class="r-hover red-c" href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></strong>
                                 <br>
-                                <small>by: {{ post.author }}</small>
+                                <small class="text-black">by: {{ post.author }}</small>
                             </div>
                         </li>
                         {% endif %}

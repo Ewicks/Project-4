@@ -2,7 +2,7 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html class="h-100">
+<html class="h-100" lang="en">
 
 <head>
     <title> {% block title %}Universal Blogs{% endblock %}</title>
@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}"><span class="brand"><i
-                        class="fa-solid fa-globe"></i>Universal<span class="thin">Blogs</span></span></span></a>
+                        class="fa-solid fa-globe"></i>Universal<span class="thin">Blogs</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,26 +50,29 @@
                     </li>
                 </ul>
 
-                <div class="navbar-text text-nav">
+                <ul class="d-flex flex-row">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <form method="post" action="{% url 'account_logout' %}">
                             {% csrf_token %}
                             {% if redirect_field_value %}
-                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            <input type="hidden" name="{{ redirect_field_name }}"
+                                value="{{ redirect_field_value }}" />
                             {% endif %}
-                            <button href="{% url 'index' %}" class="btn border-white text-white" type="submit">{% trans 'Sign Out' %}</button>
+                            <button href="{% url 'index' %}" class="btn border-white text-white"
+                                type="submit">{% trans 'Sign Out' %}</button>
                         </form>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link btn border-white text-white mx-3" href="{% url 'account_signup' %}">Signup</a>
+                        <a class="nav-link btn border-white text-white mx-3"
+                            href="{% url 'account_signup' %}">Signup</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn border-white text-white" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
-                </div>
+                </ul>
             </div>
         </div>
     </nav>
