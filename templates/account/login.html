@@ -14,7 +14,7 @@
           <div class="col-12 col-md-9 col-lg-7 col-xl-6">
             <div class="card" style="border-radius: 15px;">
               <div class="card-body p-5 card-bg">
-                <h2 class="text-uppercase text-center mb-5 red-c">{% trans "Sign In" %}</h2>
+                <h2 class="text-uppercase text-center mb-3 red-c">{% trans "Sign In" %}</h2>
                 <form class="login" method="POST" action="{% url 'account_login' %}">
                   {% csrf_token %}
                   {{ form.as_p }}

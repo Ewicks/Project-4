@@ -29,7 +29,7 @@
     <div class="row d-flex justify-content-center">
         <div class="d-inline-block mb-5" style="width: 800px; background-color: white">
             <div class="col-md p-5">
-                <p class="red-c">{{ post.topics }}</p>
+                <p class="red-c">{{ post.topics|title }}</p>
                 <div class="d-flex bd-highlight">
                     <p class="bd-highlight">By: {{ post.author }} | <small>{{ post.created_on }}</small></p>
                     <a class="btn border-dark bd-highlight text-black btn-clear ms-auto bd-highlight" href="{% url 'blog' %}">back</a>
