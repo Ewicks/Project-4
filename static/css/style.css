@@ -312,7 +312,7 @@ label {
     color: blue;
 }
 
-.blogs-bg {
+.light-bg {
     background-color: #E6F0FF;
 
 }
@@ -418,5 +418,5 @@ li {
 
 textarea {
     height:auto;
-    width: 600px;
+    width: 430px;
 }
