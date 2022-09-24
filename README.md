@@ -93,7 +93,7 @@ The Contact table is used when users submit the form in the contact us page.
 
 - If there if more than 6 posts on this page, then page navigation will appear below the posts section, allowing the user to press next, previous or final pape depending on how many articles there are.
 
-![Blog Page](templates/blog.html)
+![Blog Page](doc/images/blog-page.png)
 
 
 ### Contact Page
@@ -177,7 +177,18 @@ The Contact table is used when users submit the form in the contact us page.
 
 ### Bugs/Errors encountered during development
 
-- 
+* Postgress database url link changed in Heroku on it's own, so I copied and pasted the new one into the env.py file.
+
+* The blog post images was displaying locally but not in Heroku, so instead of using the dynamic image pathing, I uploaded the images to Cloudinary and used the url to display them within a if statement to get them working on Heroku.
+[Bug](doc/images/Image-path-bug.png)
+
+* This is isn't a bug but I changed the add post and edit post views from class based views to function based views, becuase they are shorter, cleaner and works well in this instance. 
+
+* Missing comma at the end of this line "STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]" in manage.py.
+
+*
+*
+*
 
 ### Unfixed Bugs
 
