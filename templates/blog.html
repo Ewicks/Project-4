@@ -45,21 +45,21 @@
                 <div class="card h-100 bg-white">
                     {% if "placeholder" in post.featured_image.url %}
                         {% if post.topics == 'technology' %}
-                        <img src="https://res.cloudinary.com/ethan123/image/upload/v1663687959/static/images/technology_oqsk9j.jpg"
+                        <img src="{% static 'images/technology.png' %}"
                             alt="" height="300">
                         {% endif %}
                     
                         {% if post.topics == 'sports' %}
-                        <img src="https://res.cloudinary.com/ethan123/image/upload/v1663687945/static/images/sports_fnhtqw.jpg"
+                        <img src="{% static 'images/sports.png' %}"
                             alt="" height="300">
                         {% endif %}
                         
                         {% if post.topics == 'business' %}
-                        <img src="https://res.cloudinary.com/ethan123/image/upload/v1663608825/business_yna114.jpg" alt="" height="300">
+                        <img src="{% static 'images/business.png' %}" alt="" height="300">
                         {% endif %}
 
-                        {% if post.topics == 'others' %}
-                        <img src="https://res.cloudinary.com/ethan123/image/upload/v1663687952/static/images/other_xcklgt.jpg"
+                        {% if post.topics == 'other' %}
+                        <img src="{% static 'images/other.png' %}"
                             alt="" width="100%" height="300">
                         {% endif %}
                     {% else %}
