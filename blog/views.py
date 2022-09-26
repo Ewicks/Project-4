@@ -8,7 +8,6 @@ from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.contrib import messages
-
 from .models import Post
 from .forms import CommentForm, PostForm, ContactForm
 
@@ -118,12 +117,6 @@ def update_post(request, pk):
         'form': post_form,
     }
     return render(request, template, context)
-
-
-class DeletePostView(DeleteView):
-    model = Post
-    template_name = "delete_post.html"
-    success_url = reverse_lazy('blog')
 
 
 @login_required
