@@ -10,13 +10,12 @@
     <section class="container-fluid">
         <div class="row bg-dark">
             <div class="col-sm">
-                <h1 class="text-center p-5 color">Universal Blogs</h1>
+                <h1 class="text-center p-5 red-c">Universal Blogs</h1>
             </div>
         </div>
-
     </section>
 
-    <section class="container test-color">
+    <section class="container">
         <div class="d-flex bd-highlight py-3 align-items-center">
             <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight text-black r-hover">All Posts</a>
             <a href="{% url 'topic' tops='technology' %}"
@@ -38,21 +37,60 @@
 
             <div class="col my-5">
                 <div class="card h-100 bg-white">
-
                     {% if "placeholder" in post.featured_image.url %}
-                    <img src="{% static 'images/' %}{{ post.topics }}.png" class="card-img-top" alt="...">
+                    {% if post.topics == 'technology' %}
+                    <img src="{% static 'images/technology.png' %}" alt="" height="300">
+                    {% endif %}
+
+                    {% if post.topics == 'sports' %}
+                    <img src="{% static 'images/sports.png' %}" alt="" height="300">
+                    {% endif %}
+
+                    {% if post.topics == 'business' %}
+                    <img src="{% static 'images/business.png' %}" alt="" height="300">
+                    {% endif %}
+
+                    {% if post.topics == 'other' %}
+                    <img src="{% static 'images/other.png' %}" alt="" width="100%" height="300">
+                    {% endif %}
                     {% else %}
-                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="...">
+                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="..." height="300">
                     {% endif %}
                     <div id="card-details" class="card-body">
-                        <h5 class="card-title"><a id="title-hover" class="text-black title-hover"
-                                href="{% url 'article-detail' post.pk %}"><strong>{{ post.title }}</strong></a></h5>
+                        <h5 class="card-title">
+                            <a id="title-hover" class="text-black title-hover"
+                                href="{% url 'article-detail' post.pk %}">
+                                <strong>{{ post.title }}</strong>
+                            </a>
+                        </h5>
                         <small>By: {{ post.author }}</small>
 
                         <p class="card-text my-2">{{ post.content|safe|truncatechars:30 }}</p>
-                        {% if user.is_authenticated %}
+                        {% if user.is_authenticated and post.author == request.user %}
                         <a class="text-black" href="{% url 'update_post' post.id %}">Edit</a>
-                        <a class="text-black" href="{% url 'delete_post' post.id %}">Delete</a>
+                        <a class="text-black" href="#" data-bs-toggle="modal"
+                            data-bs-target="#modal-delete-{{ post.id }}">Delete</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal-delete-{{ post.id }}" tabindex="-1"
+                            aria-labelledby="modal-delete-{{ post.id }}-Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modal-delete-{{ post.id }}-Label">Delete Post</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this post?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {% endif %}
                         <hr>
                         <p class="card-text text-muted h6">{{ post.created_on }} <i
@@ -67,13 +105,13 @@
 </main>
 
 {% else %}
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h2>There are no posts that are related to the searched topic</h2>
-            <p>Please click the below button to go back to the Blog page</p>
-            <a class="btn border-dark bd-highlight text-black btn-clear my-2" href="{% url 'blog' %}">back</a>
-        </div>
+<div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+        <h2>There are no posts that are related to the searched topic</h2>
+        <p>Please click the below button to go back to the Blog page</p>
+        <a class="btn border-dark bd-highlight text-black btn-clear my-2" href="{% url 'blog' %}">back</a>
     </div>
+</div>
 {% endif %}
 
 {% endblock %}
