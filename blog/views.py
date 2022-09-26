@@ -1,12 +1,16 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
+from django.views.generic import (
+    ListView, DetailView, CreateView, UpdateView, DeleteView, View)
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from django.contrib.auth.models import User
+from django.db.models import Q
+from django.contrib import messages
+
 from .models import Post
 from .forms import CommentForm, PostForm, ContactForm
-from django.core.paginator import Paginator
-from django.db.models import Q
 
 
 def TopicView(request, tops):
@@ -61,7 +65,9 @@ class PostLike(View):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
+            messages.info(request, 'unliked')
         else:
+            messages.success(request, 'liked')
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('article-detail', args=[post.id]))
@@ -82,6 +88,7 @@ def add_post(request):
         if post_form.is_valid():
             post_form.instance.author = request.user
             post_form.save()
+            messages.success(request, 'post added')
             return redirect("blog")
     template = "add_post.html"
     context = {
@@ -93,11 +100,17 @@ def add_post(request):
 @login_required
 def update_post(request, pk):
     post = get_object_or_404(Post, id=pk)
+    user = get_object_or_404(User, username=request.user)
+    if post.author != user:
+        messages.error(request, 'Access denied')
+        return redirect(reverse('blog'))
     post_form = PostForm(instance=post)
+
     if request.method == 'POST':
         post_form = PostForm(request.POST, request.FILES, instance=post)
         if post_form.is_valid():
             post_form.save()
+            messages.success(request, 'post updated')
             return redirect("blog")
     template = "update_post.html"
     context = {
@@ -111,6 +124,18 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = "delete_post.html"
     success_url = reverse_lazy('blog')
+
+
+@login_required
+def delete_post(request, pk):
+    post = get_object_or_404(Post, id=pk)
+    user = get_object_or_404(User, username=request.user)
+    if post.author != user:
+        messages.error(request, 'Access denied')
+        return redirect(reverse('blog'))
+    post.delete()
+    messages.info(request, 'post deleted')
+    return redirect(reverse('blog'))
 
 
 def about(request):
@@ -129,6 +154,7 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Thanks for your message')
             return HttpResponseRedirect('/contact?submitted=True')
     else:
         form = ContactForm()
@@ -148,8 +174,10 @@ def search_posts(request):
             Q(content__icontains=searched) |
             Q(created_on__icontains=searched) |
             Q(likes__username__icontains=searched))
+        messages.info(request, f"{request.POST['searched']} results")
 
         return render(
-            request, 'search_posts.html',  {'searched': searched, 'posts': posts})
+            request, 'search_posts.html',
+            {'searched': searched, 'posts': posts})
     else:
         return render(request, 'search_posts.html',  {})

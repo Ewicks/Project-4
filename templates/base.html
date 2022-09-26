@@ -77,6 +77,14 @@
         </div>
     </nav>
 
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags }}{% endif %} text-center">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
     <main class="main-bg">
         {% block content %}
         <!-- Content Goes here -->

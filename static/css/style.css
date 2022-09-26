@@ -422,6 +422,13 @@ ul {
     list-style: none;
 }
 
+.card-body:hover > .card-title,
+.card-title:hover a {
+    color: #EF5C65 !important;
+}
+
+
+
 /* Media Queries */
 
 @media only screen and (max-width: 1200px) {
@@ -434,6 +441,8 @@ ul {
     }
     
 }
+
+
 
 
 @media only screen and (max-width: 920px) {
