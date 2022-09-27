@@ -31,7 +31,7 @@
             <button class="btn btn-outline-info search_button" type="submit">Search</button>
         </form>
 
-        
+
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <!-- {% if posts > 1%}
             <div>
@@ -41,28 +41,27 @@
             <img src="{% static 'images/sad-face.png' %}" alt="" width="200" height="200" class="my-5">
             {% else %}
             {% endif %} -->
-            {% for post in posts %} 
-               
+            {% for post in posts %}
             <div class="col my-5">
                 <div class="card h-100 bg-white">
                     {% if "placeholder" in post.featured_image.url %}
                     {% if post.topics == 'technology' %}
-                    <img src="{% static 'images/technology.png' %}" alt="" height="300">
+                    <img src="{% static 'images/technology.png' %}" alt="Image of the inside of a computer" height="300">
                     {% endif %}
 
                     {% if post.topics == 'sports' %}
-                    <img src="{% static 'images/sports.png' %}" alt="" height="300">
+                    <img src="{% static 'images/sports.png' %}" alt="Image of sports equipment" height="300">
                     {% endif %}
 
                     {% if post.topics == 'business' %}
-                    <img src="{% static 'images/business.png' %}" alt="" height="300">
+                    <img src="{% static 'images/business.png' %}" alt="Image of skyscrapers" height="300">
                     {% endif %}
 
                     {% if post.topics == 'other' %}
-                    <img src="{% static 'images/other.png' %}" alt="" width="100%" height="300">
+                    <img src="{% static 'images/other.png' %}" alt="No Image available in bold text" height="300">
                     {% endif %}
                     {% else %}
-                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="..." height="300">
+                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="Uploaded image by user" height="300">
                     {% endif %}
                     <div id="card-details" class="card-body">
                         <h5 class="card-title">

@@ -7,10 +7,7 @@
 
 <!-- Home page -->
 <section class="hero">
-
-    <div class="hero-overlay"></div>
-    <img class="hero-img" src="{% static 'images/earth.jpg' %}" alt="">
-
+    <img class="hero-img" src="{% static 'images/earth.jpg' %}" alt="Image of Italy from space">
     <div class="hero__content h-100 container-xxl position-relative">
         <div class="d-flex h-100 align-items-center">
             <div class="text-white">
@@ -22,18 +19,14 @@
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
-                    <button  class="btn border-white text-white btn-clear" type="submit">{% trans 'Sign Out' %}</button>
+                    <button class="btn border-white text-white btn-clear" type="submit">{% trans 'Sign Out' %}</button>
                 </form>
                 {% else %}
                 <a href="{% url 'account_login' %}" class="btn border-white white btn-clear">{% trans 'Log in'%}</a>
-                
                 {% endif %}
             </div>
-
         </div>
     </div>
 </section>
-
-
 
 {% endblock %}

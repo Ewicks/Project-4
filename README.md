@@ -129,7 +129,7 @@ The Contact table is used when users submit the form in the contact us page.
 
 - When the user searches for an article or keyword, all the posts related to this search will appear making it easy for the user to find a specific article if there are many artciles on the blog page.
 
-![]()
+![Topic Page](doc/images/topic-page.png)
 
 ### Add Post
 
@@ -196,16 +196,18 @@ The Contact table is used when users submit the form in the contact us page.
 * Postgress database url link changed in Heroku on it's own, so I copied and pasted the new one into the env.py file.
 
 * The blog post images was displaying locally but not in Heroku, so instead of using the dynamic image pathing, I uploaded the images to Cloudinary and used the url to display them within a if statement to get them working on Heroku.
-[Error](doc/images/Image-path-bug.png)
+[issue](doc/images/Image-path-bug.png)
 
 * This is isn't a bug but I changed the add post and edit post views from class based views to function based views, becuase they are shorter, cleaner and works well in this instance. 
 
 * Missing comma at the end of this line "STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]" in manage.py.
 
 * When the user is using a smaller device, the row of images would become a column of images. I needed to swap the middle two div's around so that the step title was above the image where as in the image below it is below. I used to order porperty in the media query section to swap them around on 800px width.
-[Error](doc/images/about-swap-div.png)
+[Issue](doc/images/about-swap-div.png)
 
-*
+* I used JavaScript so that when the user would hover over the bottom half of a post, the title would change color. This was only working for the first post, so I used CSS instead which is a easier way of doing this as seen in the image below
+[Issue](doc/images/hover-title-issue.png)
+
 *
 
 ### Unfixed Bugs
