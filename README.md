@@ -30,13 +30,29 @@ To visit the deployed website click [here](https://universal-blogs-project-4.her
 ### User Stories
 
 ### Site Admin/Creator:
-* Restrict users access to users that have not been registered
-* Superuser will have full access
+* Restrict users access to users that have not been registered [GitHub Issue 1](https://github.com/Ewicks/universal-blogs-project-4/issues/1)
+
+* Superuser will have full access [GitHub Issue 2](https://github.com/Ewicks/universal-blogs-project-4/issues/2)
 
 ### Site User
-* Able to sign up and create an account to access certain functionality
-* Be able to create, edit, delete, comment, like and unlike posts
-* To be able to search up any article using the search bar
+* Able to sign up and create an account to access certain functionality.
+
+* Be able to create, edit, delete, comment, like and unlike posts.
+
+* To be able to search up any article using the search bar. [GitHub Issue 3](https://github.com/Ewicks/universal-blogs-project-4/issues/3)
+
+* As a user I can view a paginated list of posts. [GitHub Issue 4](https://github.com/Ewicks/universal-blogs-project-4/issues/4)
+
+* Each post will have a category which will make it easier to find the article [GitHub Issue 5](https://github.com/Ewicks/universal-blogs-project-4/issues/5)
+
+* A user can only edit or delete their own posts [GitHub Issue 6](https://github.com/Ewicks/universal-blogs-project-4/issues/6)
+
+* If the user gets a 404 error page, a page will display with a back button which redirects them to the blog page [GitHub Issue 7](https://github.com/Ewicks/universal-blogs-project-4/issues/7)
+
+
+### Agile Methodology
+
+I used GitHubs Projects Kanban Board to plan out this project which can be viewed [here](https://github.com/users/Ewicks/projects/2/views/1)
 
 
 ## Design

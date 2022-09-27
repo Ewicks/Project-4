@@ -31,16 +31,18 @@
             <button class="btn btn-outline-info search_button" type="submit">Search</button>
         </form>
 
-        {% if post not in posts %}
+        
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- {% if posts > 1%}
             <div>
                 <h2 class="my-5">No results are found!</h2>     
             </div>
             <br>
             <img src="{% static 'images/sad-face.png' %}" alt="" width="200" height="200" class="my-5">
-            {% endif %}
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            
-            {% for post in posts %}     
+            {% else %}
+            {% endif %} -->
+            {% for post in posts %} 
+               
             <div class="col my-5">
                 <div class="card h-100 bg-white">
                     {% if "placeholder" in post.featured_image.url %}
