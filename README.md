@@ -238,6 +238,62 @@ Frameworks, Libraries & Programs Used
 
 ### The W3C Markup Validator
 
+Home Page
+
+![Home Page](doc/images/html-checker-index.png)
+About Page
+
+![About Page](doc/images/html-checker-about.png)
+
+Blog Page
+![Blog Page](doc/images/html-checker-blog.png)
+
+Contact Page
+![Contact Page](doc/images/html-checker-contact.png)
+
+Signup Page
+![Signup Page](doc/images/html-checker-signup.png)
+
+Topic Page
+
+![Topic Page](doc/images/html-checker-topic.png)
+
+Search Posts Page
+![Seach Posts Page](doc/images/html-checker-seachposts.png)
+
+### CSS Validation
+
+![CSS Checker](doc/images/css-checker.png)
+
+### Python Validation
+
+Here are the files within the Blog App.
+
+Admin 
+![Admin](doc/images/python-checker-admin.png)
+
+Forms
+![Forms](doc/images/python-checker-forms.png)
+
+Models
+![Models](doc/images/python-checker-models.png)
+
+Urls
+![Urls](doc/images/python-checker-urls.png)
+
+Views
+![Urls](doc/images/python-checker-views.png)
+
+### Javascript Validation
+
+Index Page
+
+- I have used Jquery within this section which jshint does not account for.
+
+![Index Page](doc/images/jshint-index.png)
+
+Update Page
+![Update Page](doc/images/jshint-update.png)
 
 ## Deployment
 

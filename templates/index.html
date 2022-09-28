@@ -51,7 +51,7 @@
 {% block js %}
 
 <script>
-    var messageArray = ["Welcome to Universal Blogs < />"]
+    var messageArray = ["Welcome to Universal Blogs < />"];
     var textPosition = 0;
     var speed = 100;
 
@@ -60,17 +60,17 @@
 
         if (textPosition++ != messageArray[0].length)
             setTimeout(typewriter, speed);
-    }
+    };
 
     window.addEventListener('load', typewriter);
 
     const carouselText = [
     {text: "Login", color: "red"},
     {text: "Signout", color: "yellow"}
-    ]
+    ];
 
     $( document ).ready(async function() {
-    carousel(carouselText, "#feature-text")
+    carousel(carouselText, "#feature-text");
     });
 
     async function typeSentence(sentence, eleRef, delay = 100) {
@@ -79,7 +79,7 @@
     while(i < letters.length) {
         await waitForMs(delay);
         $(eleRef).append(letters[i]);
-        i++
+        i++;
     }
     return;
     }
@@ -87,7 +87,6 @@
     async function deleteSentence(eleRef) {
     const sentence = $(eleRef).html();
     const letters = sentence.split("");
-    let i = 0;
     while(letters.length > 0) {
         await waitForMs(100);
         letters.pop();
@@ -98,12 +97,12 @@
     async function carousel(carouselList, eleRef) {
         var i = 0;
         while(true) {
-        updateFontColor(eleRef, carouselList[i].color)
+        updateFontColor(eleRef, carouselList[i].color);
         await typeSentence(carouselList[i].text, eleRef);
         await waitForMs(1500);
         await deleteSentence(eleRef);
         await waitForMs(500);
-        i++
+        i++;
         if(i >= carouselList.length) {i = 0;}
         }
     }
@@ -113,7 +112,7 @@
     }
 
     function waitForMs(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
+    return new Promise(resolve => setTimeout(resolve, ms));
     }
 </script>
 
