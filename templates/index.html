@@ -6,27 +6,118 @@
 {% block content %}
 
 <!-- Home page -->
-<section class="hero">
-    <img class="hero-img" src="{% static 'images/earth.jpg' %}" alt="Image of Italy from space">
-    <div class="hero__content h-100 container-xxl position-relative">
-        <div class="d-flex h-100 align-items-center">
-            <div class="text-white">
-                <h1>Universal <span class="blogs">Blogs</span></h1>
-                <p class="sub-title">Read or create blog posts</p>
-                {% if user.is_authenticated %}
-                <form method="post" action="{% url 'account_logout' %}">
-                    {% csrf_token %}
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
-                    <button class="btn border-white text-white btn-clear" type="submit">{% trans 'Sign Out' %}</button>
-                </form>
-                {% else %}
-                <a href="{% url 'account_login' %}" class="btn border-white white btn-clear">{% trans 'Log in'%}</a>
-                {% endif %}
+
+<section>
+    <div class="container-fluid bg-dark">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="typing-container red-c my-5">
+                    <h1 id="message"></h1>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<section>
+    <div class="container-fluid bg-dark">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="typing-container white-col text-center my-5">
+                    <span id="sentence" class="sentence"><span class="mx-1 text-size">Click below to </span>
+                        <span class="text-size" id="feature-text"></span>
+                        <span class="input-cursor"></span>
+                        {% if user.is_authenticated %}
+                        <form class="flex-column my-3" method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <button class="btn border-white text-white btn-clear"
+                                type="submit">{% trans 'Sign Out' %}</button>
+                        </form>
+                        {% else %}
+                        <div class="flex-column my-3">
+                            <a href="{% url 'account_login' %}"
+                            class="btn border-white white btn-clear">{% trans 'Log in'%}</a>
+                        </div>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    var messageArray = ["Welcome to Universal Blogs < />"]
+    var textPosition = 0;
+    var speed = 100;
+
+    typewriter = () => {
+        document.querySelector("#message").innerHTML = messageArray[0].substring(0, textPosition) + "<span>\u25ae</span>";
+
+        if (textPosition++ != messageArray[0].length)
+            setTimeout(typewriter, speed);
+    }
+
+    window.addEventListener('load', typewriter);
+
+    const carouselText = [
+    {text: "Login", color: "red"},
+    {text: "Signout", color: "yellow"}
+    ]
+
+    $( document ).ready(async function() {
+    carousel(carouselText, "#feature-text")
+    });
+
+    async function typeSentence(sentence, eleRef, delay = 100) {
+    const letters = sentence.split("");
+    let i = 0;
+    while(i < letters.length) {
+        await waitForMs(delay);
+        $(eleRef).append(letters[i]);
+        i++
+    }
+    return;
+    }
+
+    async function deleteSentence(eleRef) {
+    const sentence = $(eleRef).html();
+    const letters = sentence.split("");
+    let i = 0;
+    while(letters.length > 0) {
+        await waitForMs(100);
+        letters.pop();
+        $(eleRef).html(letters.join(""));
+    }
+    }
+
+    async function carousel(carouselList, eleRef) {
+        var i = 0;
+        while(true) {
+        updateFontColor(eleRef, carouselList[i].color)
+        await typeSentence(carouselList[i].text, eleRef);
+        await waitForMs(1500);
+        await deleteSentence(eleRef);
+        await waitForMs(500);
+        i++
+        if(i >= carouselList.length) {i = 0;}
+        }
+    }
+
+    function updateFontColor(eleRef, color) {
+    $(eleRef).css('color', color);
+    }
+
+    function waitForMs(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+    }
+</script>
 
 {% endblock %}

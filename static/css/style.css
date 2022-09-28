@@ -318,7 +318,8 @@ label {
 }
 
 .border-line:hover {
-    border: 1.5px solid white;
+    border-bottom: 2px solid #EF5C65;
+    transition: width 0s;
 }
 
 
@@ -427,6 +428,28 @@ ul {
     color: #EF5C65 !important;
 }
 
+
+.length-index {
+    height: 80vh;
+}
+
+.typing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.white-col {
+    color: white;
+}
+
+.index-title {
+    font-size: 50px;
+}
+
+.text-size {
+    font-size: 30px;
+}
 
 /* Media Queries */
 
