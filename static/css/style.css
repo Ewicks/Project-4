@@ -2,6 +2,10 @@ body {
     background-color: #F3F1E9;
 }
 
+.lightblue-bg {
+    background-color: #E6F0FF;
+}
+
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
@@ -441,10 +445,6 @@ ul {
 
 .white-col {
     color: white;
-}
-
-.index-title {
-    font-size: 50px;
 }
 
 .text-size {

@@ -7,27 +7,27 @@
 
 <!-- Home page -->
 
-<section>
-    <div class="container-fluid bg-dark">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="typing-container red-c my-5">
-                    <h1 id="message"></h1>
-                </div>
+<div class="container-fluid bg-dark">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="typing-container red-c my-5">
+                <h1 id="message"></h1>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<section>
-    <div class="container-fluid bg-dark">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="typing-container white-col text-center my-5">
-                    <span id="sentence" class="sentence"><span class="mx-1 text-size">Click below to </span>
-                        <span class="text-size" id="feature-text"></span>
-                        <span class="input-cursor"></span>
-                        {% if user.is_authenticated %}
+<div class="container-fluid bg-dark">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="typing-container white-col text-center my-5 d-flex flex-column">
+                <div class="d-flex">
+                    <span id="sentence" class="sentence mx-1 text-size">Click below to </span>
+                    <span class="text-size" id="feature-text"></span>
+                    <span class="input-cursor"></span>
+                </div>
+                <div class="d-flex my-2">
+                    {% if user.is_authenticated %}
                         <form class="flex-column my-3" method="post" action="{% url 'account_logout' %}">
                             {% csrf_token %}
                             {% if redirect_field_value %}
@@ -36,18 +36,15 @@
                             <button class="btn border-white text-white btn-clear"
                                 type="submit">{% trans 'Sign Out' %}</button>
                         </form>
-                        {% else %}
-                        <div class="flex-column my-3">
-                            <a href="{% url 'account_login' %}"
+                    {% else %}
+                        <a href="{% url 'account_login' %}"
                             class="btn border-white white btn-clear">{% trans 'Log in'%}</a>
-                        </div>
-                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>
-
     </div>
-</section>
+</div>
 
 {% endblock %}
 
