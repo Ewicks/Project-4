@@ -15,7 +15,7 @@
     </section>
 
     <section class="container light-bg">
-        <div class="d-flex bd-highlight py-3 align-items-center">
+        <div class="d-flex bd-highlight py-3 align-items-center category-section">
             <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight text-black r-hover">All Posts</a>
             <a href="{% url 'topic' tops='technology' %}"
                 class="p-2 mb-0 bd-highlight text-black r-hover">Technology</a>
@@ -27,7 +27,7 @@
                 Post</a>
             {% else %}
             <a href="{% url 'account_signup' %}"
-                class="ms-auto m-0 p-2 bd-highlight btn border-dark btn-clear text-black">Log in/Sign up</a>
+                class="ms-auto m-0 p-2 bd-highlight btn border-dark btn-clear text-black login-btn">Log in/Sign up</a>
             {% endif %}
         </div>
         <form class="d-flex" method=POST action="{% url 'search_posts' %}">
@@ -38,7 +38,7 @@
         </form>
 
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-lg-3 g-4">
             {% for post in object_list %}
             <div class="col my-5">
                 <div class="card h-100 bg-white">
@@ -136,7 +136,7 @@
 
     <section class="container">
         <div class="row">
-            <div class="col">
+            <div class="col latest-post">
                 <div class="widget">
                     <div class="latest-title">
                         <h4><strong>Categorys</strong></h4>

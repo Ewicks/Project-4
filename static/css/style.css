@@ -455,6 +455,8 @@ ul {
     font-size: 25px;
 }
 
+
+
 /* Media Queries */
 
 @media only screen and (max-width: 1200px) {
@@ -515,3 +517,39 @@ ul {
     } */
 }
     
+
+@media only screen and (max-width: 500px) {
+    .started-text {
+        font-size: 30px;
+    }
+
+    .login-btn {
+        display: none;
+    }
+
+    .latest-post {
+        display: none;
+    }
+
+    textarea {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .r-hover {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    textarea {
+        width: 300px;
+    }
+}
+@media only screen and (max-width: 350px) {
+    textarea {
+        width: 200px;
+    }
+}
+
