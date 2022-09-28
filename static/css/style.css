@@ -350,6 +350,10 @@ label {
 .latest-img {
     border-radius: 10px;
     margin-right: 15px;
+    transition: all 0.9s ease-in-out;
+}
+.latest-img:hover {
+    transform: scale(1.1);
 }
 
 .latest-title h4{
