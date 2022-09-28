@@ -87,7 +87,7 @@ def add_post(request):
         if post_form.is_valid():
             post_form.instance.author = request.user
             post_form.save()
-            messages.success(request, 'post added')
+            messages.success(request, 'Post added')
             return redirect("blog")
     template = "add_post.html"
     context = {
