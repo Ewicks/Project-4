@@ -293,6 +293,7 @@ Index Page
 ![Index Page](doc/images/jshint-index.png)
 
 Update Page
+
 ![Update Page](doc/images/jshint-update.png)
 
 ## Deployment
