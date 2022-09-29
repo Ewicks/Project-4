@@ -8,7 +8,7 @@
 {% block content %}
 
 <!-- Artcile Details page -->
-<section class="container-fluid lightblue-bg">
+<section class="container-fluid lightblue-bg topic-navigation">
     <div class="d-flex bd-highlight py-3 align-items-center">
         <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight r-hover text-black">All Posts</a>
         <a href="{% url 'topic' tops='technology' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Technology</a>
@@ -16,10 +16,10 @@
         <a href="{% url 'topic' tops='business' %}" class="p-2 mb-0 bd-highlight r-hover text-black">Business</a>
         <a href="{% url 'topic' tops='other' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Other</a>
         {% if user.is_authenticated %}
-        <a class="text-black btn border-dark ms-auto m-0 p-2 bd-highlight btn-clear" href="{% url 'add_post' %}">Add
+        <a class="text-black btn border-dark ms-auto m-0 p-2 bd-highlight btn-clear add-post-btn" href="{% url 'add_post' %}">Add
             Post</a>
         {% else %}
-        <a class="ms-auto m-0 p-2 bd-highlight border-dark btn text-black btn-clear"
+        <a class="ms-auto m-0 p-2 bd-highlight border-dark btn text-black btn-clear login-btn"
             href="{% url 'account_signup' %}">Log in/Sign up</a>
         {% endif %}
     </div>
@@ -32,28 +32,28 @@
                 <p class="red-c">{{ post.topics|title }}</p>
                 <div class="d-flex bd-highlight">
                     <p class="bd-highlight">By: {{ post.author }} | <small>{{ post.created_on }}</small></p>
-                    <a class="btn border-dark bd-highlight text-black btn-clear ms-auto bd-highlight mb-2"
+                    <a class="btn border-dark bd-highlight text-black btn-clear ms-auto bd-highlight mb-2 back-btn"
                         href="{% url 'blog' %}">back</a>
                 </div>
                 <h2 class="mb-4"><strong>{{ post.title }}</strong></h2>
                 {% if "placeholder" in post.featured_image.url %}
-                {% if post.topics == 'technology' %}
-                <img src="{% static 'images/technology.png' %}" alt="Image of inside a computer">
-                {% endif %}
+                    {% if post.topics == 'technology' %}
+                    <img src="{% static 'images/technology.png' %}" class="img-fluid w-100" alt="Image of inside a computer">
+                    {% endif %}
 
-                {% if post.topics == 'sports' %}
-                <img src="{% static 'images/sports.png' %}" alt="Image of Sports equipment">
-                {% endif %}
+                    {% if post.topics == 'sports' %}
+                    <img src="{% static 'images/sports.png' %}" class="img-fluid w-100" alt="Image of Sports equipment">
+                    {% endif %}
 
-                {% if post.topics == 'business' %}
-                <img src="{% static 'images/business.png' %}" alt="Image of skyscrapers">
-                {% endif %}
+                    {% if post.topics == 'business' %}
+                    <img src="{% static 'images/business.png' %}" class="img-fluid w-100" alt="Image of skyscrapers">
+                    {% endif %}
 
-                {% if post.topics == 'other' %}
-                <img src="{% static 'images/other.png' %}" alt="No image available in bold text">
-                {% endif %}
+                    {% if post.topics == 'other' %}
+                    <img src="{% static 'images/other.png' %}" class="img-fluid w-100" alt="No image available in bold text">
+                    {% endif %}
                 {% else %}
-                <img src="{{ post.featured_image.url }}" alt="Uploaded image by the user">
+                <img src="{{ post.featured_image.url }}" class="img-fluid w-100" alt="Uploaded image by the user">
                 {% endif %}
                 <p class="mt-5">{{ post.content|safe }}</p>
                 <hr class="mt-5 ">
@@ -129,13 +129,7 @@
 
             <div class="col-md-4 card mb-4  mt-3 ">
                 <div class="card-body p-0">
-                    <!-- {% if commented %} -->
-                    <!-- <div class="alert alert-success" role="alert">
-                        Your comment is awaiting approval
-                    </div> -->
-                    <!-- {% else %} -->
                     {% if user.is_authenticated %}
-
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
                     <form method="post" style="margin-top: 1.3em;">
@@ -145,7 +139,6 @@
                             class="btn border-dark bd-highlight text-black btn-clear my-4">Submit</button>
                     </form>
                     {% endif %}
-                    <!-- {% endif %} -->
                 </div>
             </div>
         </div>

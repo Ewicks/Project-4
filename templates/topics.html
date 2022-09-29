@@ -24,11 +24,11 @@
             <a href="{% url 'topic' tops='business' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Business</a>
             <a href="{% url 'topic' tops='other' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Other</a>
             {% if user.is_authenticated %}
-            <a href="{% url 'add_post' %}" class="btn border-dark btn-clear text-black ms-auto m-0 p-2 bd-highlight">Add
+            <a href="{% url 'add_post' %}" class="btn border-dark btn-clear text-black ms-auto m-0 p-2 bd-highlight add-post-btn">Add
                 Post</a>
             {% else %}
             <a href="{% url 'account_signup' %}"
-                class="ms-auto m-0 p-2 bd-highlight btn border-dark btn-clear text-black">Log in/Sign up</a>
+                class="ms-auto m-0 p-2 bd-highlight btn border-dark btn-clear text-black login-btn">Log in/Sign up</a>
             {% endif %}
         </div>
 

@@ -38,29 +38,32 @@
         </form>
 
 
-        <div class="row row-cols-1 row-cols-lg-3 g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for post in object_list %}
             <div class="col my-5">
                 <div class="card h-100 bg-white">
-                    {% if "placeholder" in post.featured_image.url %}
-                    {% if post.topics == 'technology' %}
-                    <img src="{% static 'images/technology.png' %}" alt="Image inside a computer" height="300">
-                    {% endif %}
+                    <div class="img-container">
+                        {% if "placeholder" in post.featured_image.url %}
+                        {% if post.topics == 'technology' %}
+                        <img src="{% static 'images/technology.png' %}" class="img-fluid w-100" alt="Image inside a computer" >
+                        {% endif %}
 
-                    {% if post.topics == 'sports' %}
-                    <img src="{% static 'images/sports.png' %}" alt="Image of sports equipment" height="300">
-                    {% endif %}
+                        {% if post.topics == 'sports' %}
+                        <img src="{% static 'images/sports.png' %}" class="img-fluid w-100" alt="Image of sports equipment">
+                        {% endif %}
 
-                    {% if post.topics == 'business' %}
-                    <img src="{% static 'images/business.png' %}" alt="Image of skyscrapers" height="300">
-                    {% endif %}
+                        {% if post.topics == 'business' %}
+                        <img src="{% static 'images/business.png' %}" class="img-fluid w-100" alt="Image of skyscrapers" height="300">
+                        {% endif %}
 
-                    {% if post.topics == 'other' %}
-                    <img src="{% static 'images/other.png' %}" alt="No image available in bold text" height="300">
-                    {% endif %}
-                    {% else %}
-                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="Uploaded image by user" height="300">
-                    {% endif %}
+                        {% if post.topics == 'other' %}
+                        <img src="{% static 'images/other.png' %}" class="img-fluid w-100" alt="No image available in bold text" height="300">
+                        {% endif %}
+                        {% else %}
+                        <img src="{{ post.featured_image.url }}"  class="card-img-top img-fluid w-100" alt="Uploaded image by user" height="300">
+                        {% endif %}
+                    </div>
+                    
 
                     <div class="card-body">
                         <h5 class="card-title">
