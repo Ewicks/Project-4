@@ -6,7 +6,8 @@ Universal Blogs is a website that shares articles on any topic the user wants to
 This website allows all users to be able to post, add, edit and delete their posts. All they need is an account which they will have to sign up for.
 
 ## Preview
-- all responsive image goes hereeeeeee
+
+![Responsive Image](doc/images/responsive-img.png)
 
 ### Live Website
 To visit the deployed website click [here](https://universal-blogs-project-4.herokuapp.com/)
