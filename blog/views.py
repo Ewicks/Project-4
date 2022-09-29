@@ -13,12 +13,18 @@ from .forms import CommentForm, PostForm, ContactForm
 
 
 def TopicView(request, tops):
+    """
+    Filters the Post models objects by the topics list field
+    """
     topics_posts = Post.objects.filter(topics=tops)
     return render(request, 'topics.html', {
         'tops': tops, 'topics_posts': topics_posts})
 
 
 class PostDetail(View):
+    """
+    This view handles the get and post request for the comments form
+    """
     def get(self, request, pk, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, id=pk)
@@ -61,6 +67,9 @@ class PostDetail(View):
 
 
 class PostLike(View):
+    """
+    
+    """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -83,13 +92,15 @@ class PostList(ListView):
 
 @login_required
 def add_post(request):
-    post_form = PostForm(request.POST or None, request.FILES)
     if request.method == "POST":
+        post_form = PostForm(request.POST or None, request.FILES)
         if post_form.is_valid():
             post_form.instance.author = request.user
             post_form.save()
             messages.success(request, 'Post added')
             return redirect("blog")
+    else:
+        post_form = PostForm()
     template = "add_post.html"
     context = {
         "form": post_form,
