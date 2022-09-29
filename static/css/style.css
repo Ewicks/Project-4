@@ -1,5 +1,5 @@
 body {
-    background-color: #F3F1E9;
+    background-color: #212529;
 }
 
 .lightblue-bg {
@@ -456,7 +456,7 @@ ul {
 }
 
 .length-topic {
-    height: 100vh;
+    height: 70vh;
 }
 
 .img-container {
@@ -546,6 +546,10 @@ ul {
 
     .topic-navigation {
         display: none;
+    }
+
+    h2 {
+        font-size: 15px;
     }
 }
 

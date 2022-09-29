@@ -103,17 +103,18 @@
     </section>
 </main>
 
-
 {% else %}
-<section class="light-bg length-topic">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h2 class="mt-5">There are no posts that are related to the searched topic</h2>
-            <p>Please click the below button to go back to the Blog page</p>
-            <a class="btn border-dark bd-highlight text-black btn-clear my-2" href="{% url 'blog' %}">back</a>
+<main class="lightblue-bg">
+    <section class="lightblue-bg length-topic container">
+        <div class="row">
+            <div class="col px-2">
+                <h2 class="mt-5">There are no posts that are related to the searched topic</h2>
+                <a class="btn border-dark bd-highlight text-black btn-clear my-2" href="{% url 'blog' %}">back</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
+
 
 {% endif %}
 

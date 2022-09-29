@@ -17,7 +17,8 @@
             <a href="{% url 'topic' tops='business' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Business</a>
             <a href="{% url 'topic' tops='other' %}" class="p-2 mb-0 bd-highlight text-black r-hover">Other</a>
             {% if user.is_authenticated %}
-            <a href="{% url 'add_post' %}" class="btn border-dark btn-clear text-black ms-auto m-0 p-2 bd-highlight add-post-btn">Add
+            <a href="{% url 'add_post' %}"
+                class="btn border-dark btn-clear text-black ms-auto m-0 p-2 bd-highlight add-post-btn">Add
                 Post</a>
             {% else %}
             <a href="{% url 'account_signup' %}"
@@ -31,32 +32,37 @@
             <button class="btn border-dark btn-clear" type="submit">Search</button>
         </form>
     </div>
-    <section>
+    <section class="container">
         {% if posts %}
-        <div class="container">
-            {% for post in posts %}
             <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for post in posts %}
                 <div class="col my-5">
                     <div class="card h-100 bg-white">
-                        {% if "placeholder" in post.featured_image.url %}
-                            {% if post.topics == 'technology' %}
-                            <img src="{% static 'images/technology.png' %}" class="img-fluid" alt="Image of the inside of a computer">
+                        <div class="img-container">
+                            {% if "placeholder" in post.featured_image.url %}
+                                {% if post.topics == 'technology' %}
+                                <img src="{% static 'images/technology.png' %}" class="img-fluid w-100"
+                                    alt="Image of the inside of a computer">
+                                {% endif %}
+
+                                {% if post.topics == 'sports' %}
+                                <img src="{% static 'images/sports.png' %}"  class="img-fluid w-100" alt="Image of sports equipment">
+                                {% endif %}
+
+                                {% if post.topics == 'business' %}
+                                <img src="{% static 'images/business.png' %}" class="img-fluid w-100" alt="Image of skyscrapers">
+                                {% endif %}
+
+                                {% if post.topics == 'other' %}
+                                <img src="{% static 'images/other.png' %}" class="img-fluid w-100"
+                                    alt="No Image available in bold text">
+                                {% endif %}
+                            {% else %}
+                            <img src="{{ post.featured_image.url }}" class="img-fluid w-100"
+                                alt="Uploaded image by user">
                             {% endif %}
-        
-                            {% if post.topics == 'sports' %}
-                            <img src="{% static 'images/sports.png' %}" class="img-fluid" alt="Image of sports equipment">
-                            {% endif %}
-        
-                            {% if post.topics == 'business' %}
-                            <img src="{% static 'images/business.png' %}" class="img-fluid" alt="Image of skyscrapers">
-                            {% endif %}
-        
-                            {% if post.topics == 'other' %}
-                            <img src="{% static 'images/other.png' %}" class="img-fluid" alt="No Image available in bold text">
-                            {% endif %}
-                        {% else %}
-                        <img src="{{ post.featured_image.url }}" class="img-fluid" class="card-img-top" alt="Uploaded image by user">
-                        {% endif %}
+                        </div>
+                        
                         <div id="card-details" class="card-body">
                             <h5 class="card-title">
                                 <a id="title-hover" class="text-black title-hover"
@@ -65,13 +71,17 @@
                                 </a>
                             </h5>
                             <small>By: {{ post.author }} </small>
-    
+
                             <p class="card-text my-2">{{ post.content|safe|truncatechars:30 }}</p>
                             {% if user.is_authenticated and post.author == request.user %}
                             <a class="text-black" href="{% url 'update_post' post.id %}">Edit</a>
                             <a class="text-black" href="#" data-bs-toggle="modal"
                                 data-bs-target="#modal-delete-{{ post.id }}">Delete</a>
-                            <!-- Modal -->
+                            <hr>
+                            <p class="card-text text-muted h6">{{ post.created_on }} <i
+                                    class="fa-regular fa-heart heart-color"></i>
+                                {{ post.number_of_likes }}</p>
+                            <!-- Delete Pop Up -->
                             <div class="modal fade" id="modal-delete-{{ post.id }}" tabindex="-1"
                                 aria-labelledby="modal-delete-{{ post.id }}-Label" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -94,25 +104,19 @@
                                 </div>
                             </div>
                             {% endif %}
-                            <hr>
-                            <p class="card-text text-muted h6">{{ post.created_on }} <i
-                                    class="fa-regular fa-heart heart-color"></i>
-                                {{ post.number_of_likes }}</p>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-                {% else %}
-                <div class="container">
-                    <h2 class="my-5">No results are found!</h2>
-                </div>
-                <br>
-                {% endif %}
-            </div>
-    
+            {% endfor %}
+        {% else %}
+        <div class="container">
+            <h2 class="my-5">No results are found!</h2>
         </div>
+        <br>
+        {% endif %}
+
     </section>
-   
+
 </main>
 
 {% endblock %}
