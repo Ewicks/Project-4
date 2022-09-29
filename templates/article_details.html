@@ -129,11 +129,11 @@
 
             <div class="col-md-4 card mb-4  mt-3 ">
                 <div class="card-body p-0">
-                    {% if commented %}
-                    <div class="alert alert-success" role="alert">
+                    <!-- {% if commented %} -->
+                    <!-- <div class="alert alert-success" role="alert">
                         Your comment is awaiting approval
-                    </div>
-                    {% else %}
+                    </div> -->
+                    <!-- {% else %} -->
                     {% if user.is_authenticated %}
 
                     <h3>Leave a comment:</h3>
@@ -145,7 +145,7 @@
                             class="btn border-dark bd-highlight text-black btn-clear my-4">Submit</button>
                     </form>
                     {% endif %}
-                    {% endif %}
+                    <!-- {% endif %} -->
                 </div>
             </div>
         </div>

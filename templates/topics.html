@@ -5,9 +5,9 @@
 
 <!-- Topics page -->
 {% if topics_posts %}
+<main class="lightblue-bg">
 
-<main class="light-bg">
-    <section class="container-fluid">
+    <section class="container-fluid lightblue-bg">
         <div class="row bg-dark">
             <div class="col-sm">
                 <h1 class="text-center p-5 red-c">Universal Blogs</h1>
@@ -15,7 +15,7 @@
         </div>
     </section>
 
-    <section class="container">
+    <section class="container lightblue-bg">
         <div class="d-flex bd-highlight py-3 align-items-center">
             <a href="{% url 'blog' %}" class="p-2 mb-0 bd-highlight text-black r-hover">All Posts</a>
             <a href="{% url 'topic' tops='technology' %}"
@@ -32,7 +32,7 @@
             {% endif %}
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4 lightblue-bg">
             {% for post in topics_posts %}
 
             <div class="col my-5">
@@ -104,14 +104,18 @@
     </section>
 </main>
 
+
 {% else %}
-<div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-        <h2>There are no posts that are related to the searched topic</h2>
-        <p>Please click the below button to go back to the Blog page</p>
-        <a class="btn border-dark bd-highlight text-black btn-clear my-2" href="{% url 'blog' %}">back</a>
+<section class="light-bg length-topic">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h2 class="mt-5">There are no posts that are related to the searched topic</h2>
+            <p>Please click the below button to go back to the Blog page</p>
+            <a class="btn border-dark bd-highlight text-black btn-clear my-2" href="{% url 'blog' %}">back</a>
+        </div>
     </div>
-</div>
+</section>
+
 {% endif %}
 
 {% endblock %}
