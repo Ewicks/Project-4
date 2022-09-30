@@ -162,16 +162,6 @@ footer {
     color: lightgray;
 }
 
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
 
 .link {
     color: #23BBBB;
@@ -321,9 +311,12 @@ label {
 
 }
 
+.border-line {
+    border-bottom: 2px solid transparent;
+}
+
 .border-line:hover {
     border-bottom: 2px solid #EF5C65;
-    transition: width 0s;
 }
 
 
@@ -551,6 +544,7 @@ ul {
     h2 {
         font-size: 15px;
     }
+    
 }
 
 @media only screen and (max-width: 400px) {

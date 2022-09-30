@@ -1,7 +1,7 @@
 # Universal Blogs
 
 ## Introduction
-Universal Blogs is a website that shares articles on any topic the user wants to post about, the main topics like: technology, sports and business are categorised already. If the user wants to seatch for a less popular topic they can browse the other article category or search for the article in the search bar.
+Universal Blogs is a website that shares articles on any topic the user wants to post about. The main topics are Technology, Sports, Business, if the user wants to search for a less popular topic they can browse the other article category or search for the article in the search bar.
 
 This website allows all users to be able to post, add, edit and delete their posts. All they need is an account which they will have to sign up for.
 
@@ -213,7 +213,9 @@ The Contact table is used when users submit the form in the contact us page.
 
 ![Add_Post View](doc/images/addpost-view.png)
 
-### Unfixed Bugs
+* When the user hovered over one of the navbar page elements that takes the user to a new page. For example, the blog button, all the page elements would move up 2 pixels when I hovered over one of them. To fix this I gave the class border-line a transparent border-bottom of 2px so that when the hover effect appears 2px border-bottom isn't added, instead it will be replaced with the red color via the hover css below.
+
+![Hover issue](doc/images/hover-issue.png)
 
 
 ## Technologies Used
@@ -236,6 +238,7 @@ Frameworks, Libraries & Programs Used
 - [Gitpod](https://www.gitpod.io) is a online IDE linked to the GitHub repository used to write this project
 - [Google Chrome Dev tools](https://developer.chrome.com/docs/devtools/) used for debugging code
 - [Heroku](https://www.heroku.com) is used to deploy this project. Heroku is a cloud platform as a service supporting several programming languages.
+- [JQuery](https://jquery.com/) is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation
 
 ## Testing
 
@@ -356,7 +359,7 @@ to copy the URL
 
 ## Acknowledgements
 * I used Code Institute's material in the Full Stack Development course.
-* W3Schools, youtube clips and stackoverflow resources helped my through the project
+* W3Schools, youtube clips and stackoverflow resources helped my throughout the project
 * Tim - Code Institute mentor
 
 This project is for educational use only and was created for the Code Institute Module.
