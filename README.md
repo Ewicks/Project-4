@@ -302,6 +302,49 @@ Update Page
 
 ![Update Page](doc/images/jshint-update.png)
 
+### Browser Compatibility
+
+There are no Compatibility issues that I am aware of.
+
+### Chrome
+
+- Mobile Size
+![Blog Page](doc/images/mobile-blog-chrome.png)
+
+- Desktop Size
+![Contact Page](doc/images/desktop-contact-chrome.png)
+
+### Safari
+
+- Tablet Size
+![Blog Page](doc/images/tablet-blog-safari.png)
+
+- Tablet Size
+![Index Page](doc/images/tablet-index-safari.png)
+
+
+### Responsiveness
+
+There are no Responsiveness issues that I am aware of.
+
+- Desktop
+![Contact Page](doc/images/desktop-contact-chrome.png)
+
+![Blog Page](doc/images/blog-desktop.png)
+
+- Tablet Size
+
+![Index Page](doc/images/tablet-index-safari.png)
+
+![Blog Page](doc/images/tablet-blog-safari.png)
+
+- Mobile Size
+
+![Blog Page](doc/images/mobile-blog-chrome.png)
+
+![About Page](doc/images/mobile-about.png)
+
+
 ## Deployment
 
 * Log in to [Heroku](https://id.heroku.com/login) or create an account
@@ -321,6 +364,14 @@ Update Page
 * Search for the repository name and click the connect button
 * Scroll to the bottom of the deploy page and select the preferred deployment type
 * Click either Enable Automatic Deploys for automatic deployment when you push updates to Github
+* Create a requirements.txt in the root directory file so Heroku can install the packages needed.
+* To update requirements.txt with all package installments type the command in the terminal "pip3 freeze --local > requirements.txt"
+* To obtain the Postgres DATABASE_URL from Heroku, navigate to the resources tab in your app, under the title Add-ons search for Heroku Postgres, submit this option. The DATABASE_URL will be added to config bars automatically.
+* To obtain a cloudinary key, navigate to your cloudinary accounts details under the Dashboard tab. Add the url to the cloudinary config var.
+* In GitPod create a file called env.py in the root directory.
+* Import os in the env.py file then type os.environ["WRITE_KEY_HERE"] = "VALUES_GO_HERE"
+* Fill in the above line with the "SECRET_KEY", "CLOUDINARY_URL" AND "DATABASE_URL". The values for each key are found in the config vars in Heroku.
+
 
 ### Final Deployment 
 
@@ -336,6 +387,8 @@ Update Page
 * Open [GitHub](https://github.com/Ewicks/universal-blogs-project-4)
 * Find the 'Fork' button at the top right of the page
 * Once you click the button the fork will be in your repository
+* Create a requirements.txt in the root directory file so Heroku can install the packages needed.
+* To update requirements.txt with all package installments type the command in the terminal "pip3 freeze --local > requirements.txt"
 
 ### Cloning This Project
 
@@ -349,12 +402,17 @@ to copy the URL
 * Change the current working directory to the location that you want the cloned directory
 * Type 'git clone' and paste the URL copied in step 3
 * Press 'Enter' and the project is cloned
+* Create a requirements.txt in the root directory file so Heroku can install the packages needed.
+* To update requirements.txt with all package installments type the command in the terminal "pip3 freeze --local > requirements.txt"
 
 
 ## Credits
 
 * Code Institute "I think therefore i blog" - Django blog project Walkthrough
 * Codemy.com blog post tutorials using django - [Youtube playlist](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi)
+* W3Schools, youtube clips and stackoverflow resources helped my throughout the project
+* [link](https://www.youtube.com/watch?v=h_Uv_9OxA2k) to video for typewriter effect
+* Images were taken from [Google Images](https://images.google.com/)
 
 
 ## Acknowledgements
