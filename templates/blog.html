@@ -77,7 +77,7 @@
                         <a class="text-black" href="{% url 'update_post' post.id %}">Edit</a>
                         <a class="text-black" href="#" data-bs-toggle="modal"
                             data-bs-target="#modal-delete-{{ post.id }}">Delete</a>
-                        <!-- Modal -->
+                        <!-- Delete Pop Up -->
                         <div class="modal fade" id="modal-delete-{{ post.id }}" tabindex="-1"
                             aria-labelledby="modal-delete-{{ post.id }}-Label" aria-hidden="true">
                             <div class="modal-dialog">
@@ -100,7 +100,7 @@
                         </div>
                         {% endif %}
                         <hr>
-                        <p class="card-text text-muted h6">{{ post.created_on }} <i
+                        <p class="card-text text-muted h6">{{ post.created_on }}<i
                                 class="fa-regular fa-heart heart-color"></i>
                             {{ post.number_of_likes }}</p>
                     </div>
@@ -186,8 +186,7 @@
                                         alt="No image available in bold text">
                                     {% endif %}
                                 {% else %}
-                                <img src="{{ post.featured_image.url }}" class="latest-img" height="75" width="75"
-                                    class="card-img-top" alt="Uploaded image by user">
+                                <img src="{{ post.featured_image.url }}" class="latest-img card-img-top" height="75" width="75" alt="Uploaded image by user">
                                 {% endif %}
                             </div>
                             <div class="content">

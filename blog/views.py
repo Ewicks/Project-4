@@ -67,9 +67,6 @@ class PostDetail(View):
 
 
 class PostLike(View):
-    """
-    
-    """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -159,7 +156,7 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Thanks for your message')
+            messages.success(request, 'Your message was sent successfully')
             return HttpResponseRedirect('/contact?submitted=True')
     else:
         form = ContactForm()

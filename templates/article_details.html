@@ -25,112 +25,118 @@
     </div>
 </section>
 
-<section>
+<section class="container-fluid">
     <div class="row d-flex justify-content-center lightblue-bg">
-        <div class="d-inline-block mb-5" style="width: 800px; background-color: white">
-            <div class="col-md p-5">
-                <p class="red-c">{{ post.topics|title }}</p>
-                <div class="d-flex bd-highlight">
-                    <p class="bd-highlight">By: {{ post.author }} | <small>{{ post.created_on }}</small></p>
-                    <a class="btn border-dark bd-highlight text-black btn-clear ms-auto bd-highlight mb-2 back-btn"
-                        href="{% url 'blog' %}">back</a>
-                </div>
-                <h2 class="mb-4"><strong>{{ post.title }}</strong></h2>
-                {% if "placeholder" in post.featured_image.url %}
-                    {% if post.topics == 'technology' %}
-                    <img src="{% static 'images/technology.png' %}" class="img-fluid w-100" alt="Image of inside a computer">
+        <div class="col-12 col-lg-10 mx-auto" style="width: 800px; background-color: white">
+            <div class="mb-5">
+                <div class="p-5">
+                    <p class="red-c">{{ post.topics|title }}</p>
+                    <div class="d-flex bd-highlight">
+                        <p class="bd-highlight">By: {{ post.author }} | <small>{{ post.created_on }}</small></p>
+                        <a class="btn border-dark bd-highlight text-black btn-clear ms-auto bd-highlight mb-2 back-btn"
+                            href="{% url 'blog' %}">back</a>
+                    </div>
+                    <h2 class="mb-4"><strong>{{ post.title }}</strong></h2>
+                    {% if "placeholder" in post.featured_image.url %}
+                        {% if post.topics == 'technology' %}
+                        <img src="{% static 'images/technology.png' %}" class="img-fluid w-100" alt="Image of inside a computer">
+                        {% endif %}
+    
+                        {% if post.topics == 'sports' %}
+                        <img src="{% static 'images/sports.png' %}" class="img-fluid w-100" alt="Image of Sports equipment">
+                        {% endif %}
+    
+                        {% if post.topics == 'business' %}
+                        <img src="{% static 'images/business.png' %}" class="img-fluid w-100" alt="Image of skyscrapers">
+                        {% endif %}
+    
+                        {% if post.topics == 'other' %}
+                        <img src="{% static 'images/other.png' %}" class="img-fluid w-100" alt="No image available in bold text">
+                        {% endif %}
+                    {% else %}
+                    <img src="{{ post.featured_image.url }}" class="img-fluid w-100" alt="Uploaded image by the user">
                     {% endif %}
-
-                    {% if post.topics == 'sports' %}
-                    <img src="{% static 'images/sports.png' %}" class="img-fluid w-100" alt="Image of Sports equipment">
-                    {% endif %}
-
-                    {% if post.topics == 'business' %}
-                    <img src="{% static 'images/business.png' %}" class="img-fluid w-100" alt="Image of skyscrapers">
-                    {% endif %}
-
-                    {% if post.topics == 'other' %}
-                    <img src="{% static 'images/other.png' %}" class="img-fluid w-100" alt="No image available in bold text">
-                    {% endif %}
-                {% else %}
-                <img src="{{ post.featured_image.url }}" class="img-fluid w-100" alt="Uploaded image by the user">
-                {% endif %}
-                <p class="mt-5">{{ post.content|safe }}</p>
-                <hr class="mt-5 ">
-                <div class="d-flex bd-highlight align-items-center">
-                    {% if user.is_authenticated and post.author == request.user %}
-                    <a class="btn border-dark bd-highlight m-3 text-black btn-clear"
-                        href="{% url 'update_post' post.id %}">Edit</a>
-                    <a class="btn border-dark bd-highlight m-3 text-black btn-clear" href="#" data-bs-toggle="modal"
-                        data-bs-target="#modal-delete-{{ post.id }}">Delete</a>
-                    <!-- Delete Pop Up -->
-                    <div class="modal fade" id="modal-delete-{{ post.id }}" tabindex="-1"
-                        aria-labelledby="modal-delete-{{ post.id }}-Label" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modal-delete-{{ post.id }}-Label">Delete Post</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Are you sure you want to delete this post?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+                    <p class="mt-5">{{ post.content|safe }}</p>
+                    <hr class="mt-5 ">
+                    <div class="d-flex bd-highlight align-items-center">
+                        {% if user.is_authenticated and post.author == request.user %}
+                        <a class="btn border-dark bd-highlight m-3 text-black btn-clear"
+                            href="{% url 'update_post' post.id %}">Edit</a>
+                        <a class="btn border-dark bd-highlight m-3 text-black btn-clear" href="#" data-bs-toggle="modal"
+                            data-bs-target="#modal-delete-{{ post.id }}">Delete</a>
+                        <!-- Delete Pop Up -->
+                        <div class="modal fade" id="modal-delete-{{ post.id }}" tabindex="-1"
+                            aria-labelledby="modal-delete-{{ post.id }}-Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modal-delete-{{ post.id }}-Label">Delete Post</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this post?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {% else %}
-                    <small class="text-muted m-0 p-2">Sign in to edit and delete posts </small>
-                    {% endif %}
-
-
-
-                    <strong class="ms-auto bd-highlight">
-                        {% if user.is_authenticated %}
-                        <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                            {% csrf_token %}
-                            {% if liked %}
-                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                    class="fa-regular fa-heart heart-color"></i></button>
-                            {% else %}
-                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                    class="fa-regular fa-heart heart-color"></i></button>
-                            {% endif %}
-                        </form>
                         {% else %}
-                        <span class="text-secondary"><i class="fa-regular fa-heart heart-color"></i></span>
+                        <small class="text-muted m-0 p-2">Sign in to edit and delete posts </small>
                         {% endif %}
-                        <span class="text-secondary">{{ post.number_of_likes }} </span>
-                    </strong>
+    
+                        <strong class="ms-auto bd-highlight">
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if liked %}
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="fa-regular fa-heart heart-color"></i></button>
+                                {% else %}
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="fa-regular fa-heart heart-color"></i></button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <span class="text-secondary"><i class="fa-regular fa-heart heart-color"></i></span>
+                            {% endif %}
+                            <span class="text-secondary">{{ post.number_of_likes }} </span>
+                        </strong>
+                    </div>
                 </div>
             </div>
         </div>
+</section>
 
-        <div class="d-inline-block mb-5 p-5" style="width: 800px;">
-            <h3>Comments</h3>
-            <hr>
-            {% if not post.comments.all %}
-            No comments yet...
-            {% else %}
-            {% for comment in post.comments.all %}
-            <strong>{{ comment.name }} -
-                {{ comment.created_on }}
-            </strong>
-            <br>
-            {{ comment.body }}
-            <br>
-            {% endfor %}
-            {% endif %}
-
-            <div class="col-md-4 card mb-4  mt-3 ">
+<section class="lightblue-bg">
+    <div class="container-fluid px-5">
+        <div class="row d-flex justify-content-center lightblue-bg">
+            <div class="col-12 col-lg-10 mx-auto" style="width: 800px;">
+                <h3 class="mt-4">Comments</h3>
+                <hr>
+                {% if not post.comments.all %}
+                No comments yet...
+                {% else %}
+                {% for comment in post.comments.all %}
+                <strong>{{ comment.name }} -
+                    {{ comment.created_on }}
+                </strong>
+                <br>
+                {{ comment.body }}
+                <br>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row row d-flex justify-content-center lightblue-bg">
+            <div class="col-12 col-lg-10 mx-auto" style="width: 800px;">
                 <div class="card-body p-0">
                     {% if user.is_authenticated %}
-                    <h3>Leave a comment:</h3>
+                    <h3 class="mt-4">Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
                     <form method="post" style="margin-top: 1.3em;">
                         {{ comment_form | crispy }}
@@ -142,7 +148,9 @@
                 </div>
             </div>
         </div>
+    </div>
 </section>
+       
 
 
 {% endblock %}

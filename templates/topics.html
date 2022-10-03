@@ -55,9 +55,9 @@
                     {% else %}
                     <img src="{{ post.featured_image.url }}" class="card-img-top" alt="Uploaded image by user" height="300">
                     {% endif %}
-                    <div id="card-details" class="card-body">
+                    <div class="card-body">
                         <h5 class="card-title">
-                            <a id="title-hover" class="text-black title-hover"
+                            <a class="text-black"
                                 href="{% url 'article-detail' post.pk %}">
                                 <strong>{{ post.title }}</strong>
                             </a>
