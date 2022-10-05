@@ -51,7 +51,7 @@ To visit the deployed website click [here](https://universal-blogs-project-4.her
 * If the user gets a 404 error page, a page will display with a back button which redirects them to the blog page [GitHub Issue 7](https://github.com/Ewicks/universal-blogs-project-4/issues/7)
 
 
-### Agile Methodology
+## Agile Methodology
 
 I used GitHubs Projects Kanban Board to plan out this project which can be viewed [here](https://github.com/users/Ewicks/projects/2/views/1)
 
