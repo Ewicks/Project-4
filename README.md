@@ -51,7 +51,7 @@ To visit the deployed website click [here](https://universal-blogs-project-4.her
 * If the user gets a 404 error page, a page will display with a back button which redirects them to the blog page [GitHub Issue 7](https://github.com/Ewicks/universal-blogs-project-4/issues/7)
 
 
-## Agile Methodology
+## Agile Development Process
 
 I used GitHubs Projects Kanban Board to plan out this project which can be viewed [here](https://github.com/users/Ewicks/projects/2/views/1)
 
@@ -78,7 +78,7 @@ The Comment table is used when users add a comment to a post.
 
 The Contact table is used when users submit the form in the contact us page.
 
-![](doc/images/database-scheme.png)
+![Database Models](doc/images/database-diagram.png)
   
 
 
@@ -344,6 +344,19 @@ There are no Responsiveness issues that I am aware of.
 
 ![About Page](doc/images/mobile-about.png)
 
+### User Testing
+
+- Users were sent to the website to try and break the website in some way by inputing invalid data where possible.
+- They also has tasks to complete which are below
+1. Register an account and create a blog post
+2. Attempt to edit or delete another users post
+3. Edit your own post
+4. Delete you own post
+5. search for posts that do not exit.
+
+- Feedback from users was a success, however 1 common issue was that the user could not upload their own image. They chose a category image from the selected images available to get round this.
+
+1. Could not upload there own image
 
 ## Deployment
 
