@@ -347,7 +347,7 @@ There are no Responsiveness issues that I am aware of.
 ### User Testing
 
 - Users were sent to the website to try and break the website in some way by inputing invalid data where possible.
-- They also has tasks to complete which are below
+- They also had tasks to complete which are below
 1. Register an account and create a blog post
 2. Attempt to edit or delete another users post
 3. Edit your own post
@@ -356,7 +356,7 @@ There are no Responsiveness issues that I am aware of.
 
 - Feedback from users was a success, however 1 common issue was that the user could not upload their own image. They chose a category image from the selected images available to get round this.
 
-1. Could not upload there own image
+* Could not upload there own image
 
 ## Deployment
 
